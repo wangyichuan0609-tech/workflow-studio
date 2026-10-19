@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Workflow Studio — 线路图</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..800&display=swap" rel="stylesheet">
+<style>
+:root{--ground:#F6F6F3;--ink:#1B1D21;--ink2:#41444B;--muted:#6B6E76;--faint:#9A9CA2;--rule:#E6E6E1;--rule2:#D8D8D2;--hover:#F1F1EC;--l1:#E4002B;--l2:#0072CE;--l3:#00A05A;--l4:#F2A900;--danger:#C4122F;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1440px;height:900px;overflow:hidden}body{background:#fff;color:var(--ink);font:13px/1.45 Figtree,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;cursor:pointer}.ic{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.app{display:grid;grid-template-rows:56px 844px;height:900px}.top{display:flex;align-items:center;border-bottom:1px solid var(--rule);padding-right:16px}
+.brand{width:344px;display:flex;align-items:center;gap:10px;padding-left:18px;font-weight:700;font-size:15px;letter-spacing:-.01em}.ctx{display:flex;flex-direction:column;line-height:1.25;padding-left:16px}
+.ctx b{font-size:14px;font-weight:650}.ctx small{font-size:12px;color:var(--muted)}.acts{margin-left:auto;display:flex;align-items:center;gap:6px}
+.btn{height:32px;display:inline-flex;align-items:center;gap:6px;padding:0 11px;border:1px solid var(--rule2);border-radius:8px;background:#fff;font-weight:600;font-size:13px;white-space:nowrap}.btn.pri{background:var(--ink);border-color:var(--ink);color:#fff}
+.btn.del{color:var(--danger)}.vr{width:1px;height:20px;background:var(--rule2);margin:0 6px}
+.conn{display:flex;align-items:center;gap:7px;height:32px;padding:0 11px 0 10px;border:1px solid var(--rule2);border-radius:8px;font-size:12.5px;font-weight:600;background:#fff}.conn i{width:8px;height:8px;border-radius:50%;border:1.5px solid var(--faint)}.conn small{color:var(--muted);font-size:12px;font-weight:500}
+.av{width:32px;height:32px;border-radius:50%;border:1px solid var(--rule2);display:grid;place-items:center;color:var(--ink2);background:var(--ground)}.work{display:grid;grid-template-columns:64px 280px 776px 320px;min-height:0}
+.rail{border-right:1px solid var(--rule);display:flex;flex-direction:column;align-items:center;padding:10px 0;gap:4px}.rb{width:52px;height:50px;border:0;background:none;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--muted);font-size:10.5px;font-weight:600}
+.rb .ic{width:18px;height:18px}.rb.on{background:var(--hover);color:var(--ink)}.rbr{width:1px;height:10px;background:var(--rule2)}
+.lib{border-right:1px solid var(--rule);display:flex;flex-direction:column;padding:16px 12px 0;min-height:0}.ph{display:flex;align-items:center;justify-content:space-between;padding:0 4px}
+.ph h2,.ih h2{font-size:20px;font-weight:700;letter-spacing:-.01em}.ib{width:30px;height:30px;border-radius:8px;border:1px solid var(--rule2);display:grid;place-items:center;background:#fff;color:var(--ink2)}
+.search{margin:14px 0 8px;height:36px;border:1px solid var(--rule2);border-radius:8px;display:flex;align-items:center;gap:8px;padding:0 10px;color:var(--faint);font-size:13px}.hint{font-size:12px;color:var(--muted);padding:0 4px 2px}
+.gh{font-size:12px;font-weight:600;color:var(--muted);padding:12px 4px 5px;display:flex;justify-content:space-between}.row{display:flex;align-items:center;gap:10px;padding:6px 8px;border-radius:8px;min-height:46px}
+.row.on{background:var(--hover)}.row.hv{background:#F7F7F4}.row .t{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.3}
+.row .t b{font-size:13.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.row .t small{font-size:12px;color:var(--muted)}.row .t small.m{font-family:var(--mono);font-size:11.5px}
+.row.lock .t b{color:var(--muted)}.row.lock .cap{border-color:var(--faint)}.lb{width:24px;height:24px;border-radius:6px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:13px;flex:none;font-variant-numeric:tabular-nums}
+.lb.sm{width:18px;height:18px;font-size:11px;border-radius:5px}.lb.lg{width:34px;height:34px;font-size:17px;border-radius:8px}.l1{background:var(--l1)}.l2{background:var(--l2)}.l3{background:var(--l3)}
+.capw{width:24px;display:grid;place-items:center;flex:none}.cap{width:24px;height:14px;border:2.5px solid var(--ink);border-radius:8px;background:#fff;flex:none}
+.wfg{width:24px;height:24px;flex:none}.chip{font-size:11px;font-weight:600;padding:1px 7px;border-radius:999px;border:1px solid var(--rule2);color:var(--ink2);background:#fff}
+.add{width:24px;height:24px;border-radius:6px;display:grid;place-items:center;color:var(--ink2);border:1px solid var(--rule2);background:#fff}.lk{color:var(--faint);margin-right:4px}
+.foot{margin-top:auto;border-top:1px solid var(--rule);height:42px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);padding:0 6px}.foot i{width:9px;height:9px;border-radius:50%;border:2px solid var(--ink2);background:#fff}
+.stage{display:grid;grid-template-rows:52px 792px;min-width:0}.tb{display:flex;align-items:center;gap:12px;padding:0 16px;background:#fff;border-bottom:1px solid var(--rule)}
+.tb h1{font-size:20px;font-weight:700;letter-spacing:-.01em}.saved{display:flex;align-items:center;gap:5px;font-size:12.5px;color:var(--muted);margin-right:4px}
+.seg{display:flex;background:#EFEFEA;border-radius:8px;padding:2px;gap:2px}.seg button{height:28px;padding:0 10px;border:0;background:transparent;border-radius:6px;display:flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;color:var(--ink2)}
+.seg button.on{background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(27,29,33,.14)}.warn{margin-left:auto;display:flex;align-items:center;gap:6px;height:28px;padding:0 10px;border-radius:999px;background:#FFF5D9;border:1px solid #EFD27E;color:#6A4A00;font-size:12.5px;font-weight:600}
+.canvas{position:relative;overflow:hidden;background-color:var(--ground);background-image:radial-gradient(circle,rgba(27,29,33,.10) 1px,transparent 1.3px);background-size:24px 24px;background-position:12px 12px}.canvas>svg.map{position:absolute;left:0;top:0}
+.sign{position:absolute;background:#fff;border:1px solid var(--rule2);border-radius:10px;padding:11px 12px 12px;box-shadow:0 1px 2px rgba(27,29,33,.06),0 4px 14px rgba(27,29,33,.05)}.sign.sel{border-color:var(--ink);box-shadow:0 0 0 3px rgba(27,29,33,.09),0 8px 22px rgba(27,29,33,.09)}
+.sn{display:flex;align-items:center;gap:9px}.sn b{font-size:18px;font-weight:700;letter-spacing:-.01em;flex:1;white-space:nowrap}
+.sn .more{color:var(--faint)}.xfer{display:flex;gap:3px}.xfer i{font-style:normal}.sp{font-size:11.5px;color:var(--muted);margin:3px 0 9px 33px}
+.sign p{font-size:12.5px;line-height:1.5;color:var(--ink2);border-top:1px solid var(--rule);padding-top:8px}.sign code{font-family:var(--mono);font-size:11.5px;color:var(--ink)}
+.legend{position:absolute;left:16px;bottom:16px;display:flex;gap:16px;align-items:center;background:#fff;border:1px solid var(--rule);border-radius:8px;padding:0 12px;height:32px;font-size:12px;color:var(--ink2)}.legend span{display:flex;align-items:center;gap:7px}.legend .cap{width:20px;height:12px;border-width:2px}
+.swl{width:22px;height:5px;border-radius:3px}.zoom{position:absolute;right:16px;bottom:16px;display:flex;align-items:center;background:#fff;border:1px solid var(--rule);border-radius:8px;height:32px;font-size:12px;font-weight:600}
+.zoom button{width:30px;height:30px;border:0;background:transparent;display:grid;place-items:center;color:var(--ink2)}.zoom span{padding:0 4px;font-variant-numeric:tabular-nums;min-width:40px;text-align:center}
+.insp{border-left:1px solid var(--rule);display:flex;flex-direction:column;min-height:0}.ih{padding:16px 20px 14px;display:flex;align-items:center;justify-content:space-between}
+.ih small{font-size:12px;color:var(--muted)}.sum{display:flex;align-items:center;gap:12px;padding:0 20px 16px;border-bottom:1px solid var(--rule)}
+.sum b{font-size:16px;font-weight:700;display:block;line-height:1.3}.sum small{font-size:12px;color:var(--muted)}.form{padding:16px 20px;display:flex;flex-direction:column;gap:13px}
+.lbl{display:block;font-size:12px;font-weight:600;color:var(--ink2);margin-bottom:6px}.inp{height:36px;border:1px solid var(--rule2);border-radius:8px;padding:0 10px;display:flex;align-items:center;font-size:13px;background:#fff}
+.inp.foc{border-color:var(--ink);box-shadow:0 0 0 3px rgba(27,29,33,.08)}.inp.ta{height:auto;min-height:62px;align-items:flex-start;padding:8px 10px;line-height:1.5}
+.inp.ro{background:var(--ground);font-family:var(--mono);font-size:12px;color:var(--ink2)}.inp.dd{justify-content:space-between}.inp.dd .ic{color:var(--muted)}
+.swr{display:flex;align-items:center;justify-content:space-between;font-size:13px;font-weight:600}.tog{width:34px;height:20px;border-radius:999px;background:var(--ink);position:relative}
+.tog::after{content:"";position:absolute;right:2px;top:2px;width:16px;height:16px;border-radius:50%;background:#fff}.note{display:flex;gap:8px;background:#FFF8E6;border:1px solid #F1DDA0;border-radius:8px;padding:8px 10px;font-size:12px;color:#5E4300;line-height:1.45;margin-top:-4px}
+.note .ic{color:#A57300;margin-top:1px}.rm{display:inline-flex;align-items:center;gap:6px;color:var(--danger);font-size:13px;font-weight:600;background:none;border:0;align-self:flex-start}
+.sync{margin-top:auto;border-top:1px solid var(--rule);padding:14px 20px 18px}.sync .st{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:13px;margin-bottom:9px}
+.badge{font-size:10.5px;font-weight:700;letter-spacing:.06em;color:var(--ink2);border:1px solid var(--rule2);border-radius:5px;padding:1px 6px}.sync ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.sync li{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--ink2)}.sync li .ic{color:var(--faint);width:14px;height:14px}.sync li em{font-style:normal;font-family:Figtree,"PingFang SC",sans-serif;color:var(--muted)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-folder" viewBox="0 0 16 16"><path d="M2 4.5A1.5 1.5 0 0 1 3.5 3h2.6l1.4 1.5h5A1.5 1.5 0 0 1 14 6v5.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 11.5z"/></symbol><symbol id="i-user" viewBox="0 0 16 16"><circle cx="8" cy="5.5" r="2.6"/><path d="M3 13.5c.8-2.4 2.7-3.6 5-3.6s4.2 1.2 5 3.6"/></symbol><symbol id="i-bolt" viewBox="0 0 16 16"><path d="M9 1.8 3.8 9h4l-.8 5.2L12.2 7h-4z"/></symbol><symbol id="i-route" viewBox="0 0 16 16"><circle cx="3.5" cy="4" r="1.8"/><circle cx="12.5" cy="12" r="1.8"/><path d="M5.3 4h2.1a1.5 1.5 0 0 1 1.06.44l3.1 3.1a1.5 1.5 0 0 1 .44 1.06v1.6"/></symbol><symbol id="i-book" viewBox="0 0 16 16"><path d="M3 12.5V3.5A1.5 1.5 0 0 1 4.5 2H13v10H4.5A1.5 1.5 0 0 0 3 13.5 1.5 1.5 0 0 0 4.5 15H13v-3"/></symbol>
+<symbol id="i-search" viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3.5 3.5"/></symbol><symbol id="i-refresh" viewBox="0 0 16 16"><path d="M13.5 8a5.5 5.5 0 1 1-1.6-3.9M13.5 2.5v3h-3"/></symbol><symbol id="i-plus" viewBox="0 0 16 16"><path d="M8 3.5v9M3.5 8h9"/></symbol><symbol id="i-minus" viewBox="0 0 16 16"><path d="M3.5 8h9"/></symbol><symbol id="i-lock" viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></symbol>
+<symbol id="i-trash" viewBox="0 0 16 16"><path d="M3 4.5h10M6.5 4.5V3h3v1.5M4.5 4.5l.6 8.5a1 1 0 0 0 1 .9h3.8a1 1 0 0 0 1-.9l.6-8.5"/></symbol><symbol id="i-copy" viewBox="0 0 16 16"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 5.5v-2a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2"/></symbol><symbol id="i-play" viewBox="0 0 16 16"><path d="M5 3.5v9l7-4.5z"/></symbol><symbol id="i-up" viewBox="0 0 16 16"><path d="M8 10.5v-8M5 5.5l3-3 3 3M3 10v2.5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V10"/></symbol><symbol id="i-sync" viewBox="0 0 16 16"><path d="M2.5 7A5.5 5.5 0 0 1 12.4 4.4M13.5 2.5V5H11M13.5 9a5.5 5.5 0 0 1-9.9 2.6M2.5 13.5V11H5"/></symbol>
+<symbol id="i-spark" viewBox="0 0 16 16"><path d="M8 2.2 9.3 6.7 13.8 8 9.3 9.3 8 13.8 6.7 9.3 2.2 8 6.7 6.7z"/></symbol><symbol id="i-cursor" viewBox="0 0 16 16"><path d="m3.5 2.5 9 4.6-3.9 1.3-1.5 3.9z"/></symbol><symbol id="i-link" viewBox="0 0 16 16"><path d="m6.5 9.5 3-3M7 4.5l1-1a2.8 2.8 0 0 1 4 4l-1 1M9 11.5l-1 1a2.8 2.8 0 0 1-4-4l1-1"/></symbol><symbol id="i-layout" viewBox="0 0 16 16"><rect x="2.5" y="2.5" width="4.5" height="4.5" rx="1"/><rect x="9" y="9" width="4.5" height="4.5" rx="1"/><path d="M7 4.75h2.25a1.5 1.5 0 0 1 1.5 1.5V9"/></symbol><symbol id="i-fit" viewBox="0 0 16 16"><path d="M2.5 6V3.5a1 1 0 0 1 1-1H6M10 2.5h2.5a1 1 0 0 1 1 1V6M13.5 10v2.5a1 1 0 0 1-1 1H10M6 13.5H3.5a1 1 0 0 1-1-1V10"/></symbol>
+<symbol id="i-check" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.6"/><path d="m5.6 8.2 1.6 1.6 3.2-3.4"/></symbol><symbol id="i-warn" viewBox="0 0 16 16"><path d="M7.13 2.9a1 1 0 0 1 1.74 0l5.2 9.1a1 1 0 0 1-.87 1.5H2.8a1 1 0 0 1-.87-1.5zM8 6.5v3M8 11.4v.1"/></symbol><symbol id="i-more" viewBox="0 0 16 16"><g fill="currentColor" stroke="none"><circle cx="3.5" cy="8" r="1.2"/><circle cx="8" cy="8" r="1.2"/><circle cx="12.5" cy="8" r="1.2"/></g></symbol><symbol id="i-chev" viewBox="0 0 16 16"><path d="M4.5 6.5 8 10l3.5-3.5"/></symbol><symbol id="i-file" viewBox="0 0 16 16"><path d="M4 2.5h5l3 3v8H4zM9 2.5v3h3"/></symbol>
+</defs></svg>
+<div class="app">
+<header class="top">
+  <div class="brand"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect width="26" height="26" rx="7" fill="#1B1D21"/><path d="M5 17h5.5l6-6H21" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="16.5" cy="11" r="3.2" fill="#fff" stroke="#E4002B" stroke-width="2"/></svg>Workflow Studio</div>
+  <div class="ctx"><b>多 Agent Workflow</b><small>编辑与同步本地编排</small></div>
+  <div class="acts">
+    <button class="btn del">删除</button>
+    <button class="btn"><svg class="ic"><use href="#i-copy"/></svg>复制调用方式</button>
+    <button class="btn"><svg class="ic"><use href="#i-play"/></svg>测试 Workflow</button>
+    <button class="btn"><svg class="ic"><use href="#i-up"/></svg>发布到 Studio</button>
+    <button class="btn pri"><svg class="ic"><use href="#i-sync"/></svg>同步到 Codex</button>
+    <span class="vr"></span>
+    <button class="btn"><svg class="ic"><use href="#i-spark"/></svg>AI 助手</button>
+    <button class="conn"><i></i>未连接<small>点击配置</small></button>
+    <button class="av" aria-label="打开个人菜单"><svg class="ic"><use href="#i-user"/></svg></button>
+  </div>
+</header>
+<main class="work">
+  <nav class="rail" aria-label="工作台">
+    <button class="rb"><svg class="ic"><use href="#i-folder"/></svg>Projects</button><span class="rbr"></span>
+    <button class="rb"><svg class="ic"><use href="#i-user"/></svg>Agent</button>
+    <button class="rb"><svg class="ic"><use href="#i-bolt"/></svg>Action</button>
+    <button class="rb on"><svg class="ic"><use href="#i-route"/></svg>Workflow</button>
+    <button class="rb"><svg class="ic"><use href="#i-book"/></svg>Skills</button>
+  </nav>
+  <aside class="lib">
+    <div class="ph"><h2>Agent 库</h2><button class="ib" aria-label="重新扫描"><svg class="ic"><use href="#i-refresh"/></svg></button></div>
+    <div class="search"><svg class="ic"><use href="#i-search"/></svg>搜索名称或路径</div>
+    <p class="hint">点击加入画布，或直接拖拽。</p>
+    <div class="gh">已保存 Workflows</div>
+    <div class="row on"><svg class="wfg" viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="#fff" stroke="#D8D8D2"/><path d="M5 9h3l3 3" stroke="#0072CE" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 12l3-3h3" stroke="#E4002B" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="9.5" y="10" width="5" height="4" rx="2" fill="#fff" stroke="#1B1D21" stroke-width="1.4"/></svg><span class="t"><b>会议纪要行动清单流</b><small>3 Nodes · 2 Connections</small></span><span class="chip">画布中</span></div>
+    <div class="gh">Agents<span>3</span></div>
+    <div class="row hv"><span class="lb l1">1</span><span class="t"><b>邮件内容归纳员</b><small class="m">agents/builder</small></span><span class="add"><svg class="ic" style="width:14px;height:14px"><use href="#i-plus"/></svg></span></div>
+    <div class="row"><span class="lb l2">2</span><span class="t"><b>纪要提炼员</b><small class="m">agents/researcher</small></span></div>
+    <div class="row"><span class="lb l3">3</span><span class="t"><b>Reviewer</b><small class="m">agents/reviewer</small></span></div>
+    <div class="gh">Agent 可调用的 Actions<span>4</span></div>
+    <div class="row"><span class="capw"><span class="cap"></span></span><span class="t"><b>API Request</b><small>api · 1 Agent 已授权</small></span></div>
+    <div class="row lock"><span class="capw"><span class="cap"></span></span><span class="t"><b>MCP Tool Call</b><small>mcp · 尚未被 Agent 授权</small></span><svg class="ic lk"><use href="#i-lock"/></svg></div>
+    <div class="row"><span class="capw"><span class="cap"></span></span><span class="t"><b>Normalize Meeting Actions</b><small>script · 1 Agent 已授权</small></span></div>
+    <div class="row lock"><span class="capw"><span class="cap"></span></span><span class="t"><b>读取 Outlook 新邮件</b><small>api · 尚未被 Agent 授权</small></span><svg class="ic lk"><use href="#i-lock"/></svg></div>
+    <div class="foot"><i></i>项目内 3 Agents · 4 Actions</div>
+  </aside>
+  <section class="stage">
+    <div class="tb">
+      <h1>会议纪要行动清单流</h1>
+      <span class="saved"><svg class="ic" style="width:14px;height:14px"><use href="#i-check"/></svg>已保存到 Studio</span>
+      <div class="seg"><button class="on"><svg class="ic" style="width:14px;height:14px"><use href="#i-cursor"/></svg>选择</button><button><svg class="ic" style="width:14px;height:14px"><use href="#i-link"/></svg>连接</button></div>
+      <div class="seg"><button><svg class="ic" style="width:14px;height:14px"><use href="#i-layout"/></svg>排列</button><button><svg class="ic" style="width:14px;height:14px"><use href="#i-fit"/></svg>适应</button></div>
+      <button class="warn"><svg class="ic" style="width:14px;height:14px"><use href="#i-warn"/></svg>1 条提醒<svg class="ic" style="width:14px;height:14px"><use href="#i-chev"/></svg></button>
+    </div>
+    <div class="canvas" aria-label="工作流画布">
+      <svg class="map" width="776" height="792" viewBox="0 0 776 792" aria-hidden="true">
+        <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M120 340H188Q208 340 222 354L314 446Q328 460 348 460H358" stroke="#F6F6F3" stroke-width="13"/>
+          <path d="M418 460H428Q448 460 462 446L554 354Q568 340 588 340H656" stroke="#F6F6F3" stroke-width="13"/>
+          <path d="M120 340H188Q208 340 222 354L314 446Q328 460 348 460H358" stroke="#0072CE" stroke-width="7"/>
+          <path d="M418 460H428Q448 460 462 446L554 354Q568 340 588 340H656" stroke="#E4002B" stroke-width="7"/>
+          <path d="M-2.5 -3 3 0 -2.5 3z" transform="translate(268 400) rotate(45)" fill="#fff" stroke="none"/>
+          <path d="M-2.5 -3 3 0 -2.5 3z" transform="translate(508 400) rotate(-45)" fill="#fff" stroke="none"/>
+        </g>
+        <circle cx="120" cy="340" r="18" fill="#0072CE" fill-opacity=".14"/>
+        <circle cx="120" cy="340" r="9" fill="#fff" stroke="#0072CE" stroke-width="4.5"/>
+        <circle cx="656" cy="340" r="9" fill="#fff" stroke="#E4002B" stroke-width="4.5"/>
+        <rect x="358" y="448" width="60" height="24" rx="12" fill="#fff" stroke="#1B1D21" stroke-width="3.5"/>
+      </svg>
+      <div class="sign sel" style="left:96px;bottom:476px;width:240px"><div class="sn"><span class="lb l2">2</span><b>纪要提炼员</b><svg class="ic more"><use href="#i-more"/></svg></div><div class="sp">Agent · agents/researcher</div><p>使用 <code>$meeting-action-extractor</code> 提取决定、行动项与待确认问题</p></div>
+      <div class="sign" style="left:440px;bottom:476px;width:240px"><div class="sn"><span class="lb l1">1</span><b>行动清单审核员</b><svg class="ic more"><use href="#i-more"/></svg></div><div class="sp">Agent · agents/builder</div><p>对照原始记录审查行动项，输出最终 Markdown</p></div>
+      <div class="sign" style="left:260px;top:490px;width:256px"><div class="sn"><span class="cap"></span><b>本地标准化行动项</b><span class="xfer"><i class="lb sm l2">2</i><i class="lb sm l1">1</i></span></div><div class="sp">Action · script · 由纪要提炼员调用</div><p>在本地校验会议行动项 JSON、生成 TASK 编号，并将待确认日期排在最后。</p></div>
+      <div class="legend"><span><i class="swl l2"></i>纪要提炼员</span><span><i class="swl l1"></i>行动清单审核员</span><span><i class="cap"></i>Action 换乘站</span></div>
+      <div class="zoom"><button aria-label="缩小"><svg class="ic"><use href="#i-minus"/></svg></button><span>100%</span><button aria-label="放大"><svg class="ic"><use href="#i-plus"/></svg></button></div>
+    </div>
+  </section>
+  <aside class="insp">
+    <div class="ih"><h2>配置</h2><small>Agent 节点</small></div>
+    <div class="sum"><span class="lb lg l2">2</span><span><b>纪要提炼员</b><small>2 号线 · 1 条下游交接</small></span></div>
+    <div class="form">
+      <div><span class="lbl">画布名称</span><div class="inp foc">纪要提炼员</div></div>
+      <div><span class="lbl">职责</span><div class="inp ta">使用 $meeting-action-extractor 提取决定、行动项与待确认问题</div></div>
+      <div><span class="lbl">执行入口</span><div class="inp ro">agents/researcher/AGENT.md</div></div>
+      <div><span class="lbl">模型</span><div class="inp dd">继承当前 Codex 模型<svg class="ic"><use href="#i-chev"/></svg></div></div>
+      <div class="swr">允许同层并行<span class="tog" role="switch" aria-checked="true"></span></div>
+      <div class="note"><svg class="ic"><use href="#i-warn"/></svg><span>本节点与下游串行依赖，开启“同层并行”不会生效。</span></div>
+      <button class="rm"><svg class="ic"><use href="#i-trash"/></svg>从画布移除</button>
+    </div>
+    <div class="sync">
+      <div class="st">Codex 同步<span class="badge">PROJECT ONLY</span></div>
+      <ul><li><svg class="ic"><use href="#i-file"/></svg>.codex/workflows/*.json</li><li><svg class="ic"><use href="#i-file"/></svg>.agents/skills/</li><li><svg class="ic"><use href="#i-file"/></svg>AGENTS.md <em>managed block</em></li></ul>
+    </div>
+  </aside>
+</main>
+</div>
+</body>
+</html>

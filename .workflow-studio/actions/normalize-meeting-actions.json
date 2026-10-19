@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "normalize-meeting-actions",
+  "name": "Normalize Meeting Actions",
+  "description": "在本地校验会议行动项 JSON、生成 TASK 编号，并将待确认日期排在最后。",
+  "executor": "script",
+  "inputs": {
+    "extraction": "object"
+  },
+  "steps": [
+    {
+      "type": "process.exec",
+      "command": "python3",
+      "args": [
+        "scripts/normalize_action_items.py"
+      ],
+      "stdin": "{{inputs.extraction}}"
+    }
+  ],
+  "success": {
+    "exitCode": 0
+  },
+  "outputs": {
+    "normalized": "object"
+  },
+  "timeoutSeconds": 30,
+  "errorHandling": {
+    "strategy": "stop",
+    "retries": 0
+  },
+  "credentialRefs": []
+}

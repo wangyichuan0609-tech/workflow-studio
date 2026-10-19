@@ -1,0 +1,67 @@
+{
+  "description": "由两个 Agent 提炼、本地标准化并审校会议行动项",
+  "edges": [
+    {
+      "condition": "提炼 JSON 完成后进行本地校验、编号与排序",
+      "id": "edge-research-normalize",
+      "source": "node-research",
+      "target": "node-normalize"
+    },
+    {
+      "condition": "标准化完成后交给第二个 Agent 审校并生成 Markdown",
+      "id": "edge-normalize-review",
+      "source": "node-normalize",
+      "target": "node-review"
+    }
+  ],
+  "id": "delivery-flow",
+  "name": "会议纪要行动清单流",
+  "nodes": [
+    {
+      "agentId": "agents-researcher",
+      "entrypoint": "agents/researcher/AGENT.md",
+      "id": "node-research",
+      "label": "纪要提炼员",
+      "model": "inherit",
+      "parallel": true,
+      "position": {
+        "x": 35,
+        "y": 150
+      },
+      "role": "使用 $meeting-action-extractor 提取决定、行动项与待确认问题",
+      "type": "agent"
+    },
+    {
+      "actionId": "normalize-meeting-actions",
+      "agentId": "agents-researcher",
+      "executor": "script",
+      "id": "node-normalize",
+      "label": "本地标准化行动项",
+      "parallel": true,
+      "position": {
+        "x": 247.6387939453125,
+        "y": 280.0839538574219
+      },
+      "type": "action"
+    },
+    {
+      "agentId": "agents-builder",
+      "entrypoint": "agents/builder/AGENT.md",
+      "id": "node-review",
+      "label": "行动清单审校员",
+      "model": "inherit",
+      "parallel": true,
+      "position": {
+        "x": 455,
+        "y": 150
+      },
+      "role": "对照原始记录审查行动项，输出最终 Markdown",
+      "type": "agent"
+    }
+  ],
+  "schemaVersion": 1,
+  "startPhrases": [
+    "开始"
+  ],
+  "updatedAt": "2026-10-19T02:22:47.187Z"
+}

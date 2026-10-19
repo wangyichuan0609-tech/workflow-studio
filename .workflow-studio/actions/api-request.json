@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "api-request",
+  "name": "API Request",
+  "description": "通过 HTTP API 完成一个确定性操作。",
+  "executor": "api",
+  "inputs": {
+    "payload": "object"
+  },
+  "steps": [
+    {
+      "type": "http.request",
+      "method": "POST",
+      "path": "/v1/resource",
+      "body": "{{inputs.payload}}"
+    }
+  ],
+  "success": {
+    "statusCodes": [
+      200,
+      201,
+      204
+    ]
+  },
+  "outputs": {
+    "response": "object"
+  },
+  "timeoutSeconds": 60,
+  "errorHandling": {
+    "strategy": "stop",
+    "retries": 0
+  },
+  "credentialRefs": [
+    "api-credential"
+  ]
+}

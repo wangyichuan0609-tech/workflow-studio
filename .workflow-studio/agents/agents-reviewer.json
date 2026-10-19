@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "agents-reviewer",
+  "name": "Reviewer",
+  "description": "Reviews the implementation for correctness, regressions, and gaps before the root agent synthesizes the result.",
+  "model": "inherit",
+  "instructions": "",
+  "actions": [
+    {
+      "id": "inspect",
+      "name": "Inspect",
+      "instruction": "Review the implementation and upstream context for correctness."
+    },
+    {
+      "id": "challenge",
+      "name": "Challenge",
+      "instruction": "Look for regressions, edge cases, and unsupported claims."
+    },
+    {
+      "id": "verdict",
+      "name": "Verdict",
+      "instruction": "Return actionable findings or a concise pass result."
+    }
+  ],
+  "skills": [],
+  "entrypoint": "agents/reviewer/AGENT.md"
+}

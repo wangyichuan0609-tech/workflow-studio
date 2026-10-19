@@ -1,0 +1,1697 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-18T15:29:50+00:00",
+  "title": "Design System: Workflow Studio",
+  "extensions": {
+    "colorMeta": {
+      "bg": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ],
+        "darkCounterpart": "bg-dark"
+      },
+      "bg-raised": {
+        "role": "neutral",
+        "displayName": "Raised Paper",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ],
+        "darkCounterpart": "bg-raised-dark"
+      },
+      "surface-1": {
+        "role": "neutral",
+        "displayName": "Shelf Gray",
+        "canonical": "#f7f8fa",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#242526",
+          "#414243",
+          "#606163",
+          "#818284",
+          "#a4a5a7",
+          "#c8c9cb",
+          "#edeef0"
+        ],
+        "darkCounterpart": "surface-1-dark"
+      },
+      "surface-2": {
+        "role": "neutral",
+        "displayName": "Hover Gray",
+        "canonical": "#eff1f4",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#242527",
+          "#404244",
+          "#606164",
+          "#818285",
+          "#a3a5a8",
+          "#c7c9cc",
+          "#edeff2"
+        ],
+        "darkCounterpart": "surface-2-dark"
+      },
+      "surface-3": {
+        "role": "neutral",
+        "displayName": "Pressed Gray",
+        "canonical": "#e6e9ee",
+        "tonalRamp": [
+          "#090b0e",
+          "#232529",
+          "#404246",
+          "#5f6166",
+          "#808287",
+          "#a2a5aa",
+          "#c6c9ce",
+          "#eceff4"
+        ],
+        "darkCounterpart": "surface-3-dark"
+      },
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Canvas Field",
+        "canonical": "#f5f6f8",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#242526",
+          "#414243",
+          "#606163",
+          "#818284",
+          "#a4a5a7",
+          "#c8c9cb",
+          "#edeef0"
+        ],
+        "darkCounterpart": "canvas-dark"
+      },
+      "canvas-dot": {
+        "role": "neutral",
+        "displayName": "Canvas Dot",
+        "canonical": "#d3d8df",
+        "tonalRamp": [
+          "#080b10",
+          "#22252a",
+          "#3e4248",
+          "#5d6268",
+          "#7e8389",
+          "#a1a5ac",
+          "#c5cad0",
+          "#eaeff6"
+        ],
+        "darkCounterpart": "canvas-dot-dark"
+      },
+      "row-hover": {
+        "role": "neutral",
+        "displayName": "Row Hover",
+        "canonical": "#eef0f3",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#242527",
+          "#404244",
+          "#606164",
+          "#818285",
+          "#a3a5a8",
+          "#c7c9cc",
+          "#edeff2"
+        ],
+        "darkCounterpart": "row-hover-dark"
+      },
+      "row-selected": {
+        "role": "neutral",
+        "displayName": "Row Selected",
+        "canonical": "#e8edf8",
+        "tonalRamp": [
+          "#080b12",
+          "#21252d",
+          "#3e424b",
+          "#5d616b",
+          "#7e828c",
+          "#a0a5af",
+          "#c4c9d4",
+          "#e9eefa"
+        ],
+        "darkCounterpart": "row-selected-dark"
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#e6e8ec",
+        "tonalRamp": [
+          "#0a0b0e",
+          "#242528",
+          "#404245",
+          "#5f6165",
+          "#808286",
+          "#a3a5a9",
+          "#c7c9cd",
+          "#eceef2"
+        ],
+        "darkCounterpart": "line-dark"
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Strong Hairline",
+        "canonical": "#d9dde3",
+        "tonalRamp": [
+          "#090b0f",
+          "#22252a",
+          "#3f4247",
+          "#5e6167",
+          "#7f8388",
+          "#a1a5ab",
+          "#c5c9cf",
+          "#ebeff5"
+        ],
+        "darkCounterpart": "line-strong-dark"
+      },
+      "line-input": {
+        "role": "neutral",
+        "displayName": "Field Border",
+        "canonical": "#c3c9d2",
+        "tonalRamp": [
+          "#080b11",
+          "#21252c",
+          "#3d424a",
+          "#5c6269",
+          "#7d838b",
+          "#a0a5ae",
+          "#c4cad3",
+          "#e9eff8"
+        ],
+        "darkCounterpart": "line-input-dark"
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#1f2329",
+        "tonalRamp": [
+          "#080b11",
+          "#21252b",
+          "#3e4249",
+          "#5d6269",
+          "#7e838a",
+          "#a0a5ad",
+          "#c4cad2",
+          "#e9eff7"
+        ],
+        "darkCounterpart": "text-dark"
+      },
+      "text-2": {
+        "role": "neutral",
+        "displayName": "Secondary Ink",
+        "canonical": "#565e6b",
+        "tonalRamp": [
+          "#060b15",
+          "#1e2531",
+          "#3b424f",
+          "#5a626f",
+          "#7a8391",
+          "#9da6b4",
+          "#c1cad9",
+          "#e6efff"
+        ],
+        "darkCounterpart": "text-2-dark"
+      },
+      "text-3": {
+        "role": "neutral",
+        "displayName": "Tertiary Ink",
+        "canonical": "#656c79",
+        "tonalRamp": [
+          "#070b15",
+          "#1f2530",
+          "#3c424e",
+          "#5b616e",
+          "#7b8390",
+          "#9ea5b3",
+          "#c2c9d8",
+          "#e7effe"
+        ],
+        "darkCounterpart": "text-3-dark"
+      },
+      "placeholder": {
+        "role": "neutral",
+        "displayName": "Placeholder Ink",
+        "canonical": "#6c7380",
+        "tonalRamp": [
+          "#070b14",
+          "#1f2530",
+          "#3c424e",
+          "#5b616e",
+          "#7b8390",
+          "#9ea5b3",
+          "#c2c9d8",
+          "#e7effe"
+        ],
+        "darkCounterpart": "placeholder-dark"
+      },
+      "edge": {
+        "role": "neutral",
+        "displayName": "Edge Gray",
+        "canonical": "#838c99",
+        "tonalRamp": [
+          "#060b14",
+          "#1e2630",
+          "#3b434e",
+          "#59626e",
+          "#7a8390",
+          "#9da6b3",
+          "#c0cad8",
+          "#e5effe"
+        ],
+        "darkCounterpart": "edge-dark"
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Workbench Blue",
+        "canonical": "#2f5fe0",
+        "tonalRamp": [
+          "#000036",
+          "#02007b",
+          "#092bab",
+          "#2552d2",
+          "#4377fa",
+          "#78a2ff",
+          "#b0c9fe",
+          "#e7effe"
+        ],
+        "darkCounterpart": "accent-dark"
+      },
+      "accent-hover": {
+        "role": "primary",
+        "displayName": "Workbench Blue Hover",
+        "canonical": "#2752c9",
+        "tonalRamp": [
+          "#000035",
+          "#02007b",
+          "#0d2fa5",
+          "#2954cc",
+          "#4879f3",
+          "#78a2ff",
+          "#b0c9fe",
+          "#e7efff"
+        ],
+        "darkCounterpart": "accent-hover-dark"
+      },
+      "accent-press": {
+        "role": "primary",
+        "displayName": "Workbench Blue Press",
+        "canonical": "#2147b0",
+        "tonalRamp": [
+          "#000035",
+          "#020777",
+          "#12349c",
+          "#2f57c2",
+          "#4e7be9",
+          "#78a2fe",
+          "#afc9ff",
+          "#e7efff"
+        ],
+        "darkCounterpart": "accent-press-dark"
+      },
+      "accent-soft": {
+        "role": "primary",
+        "displayName": "Selection Wash",
+        "canonical": "#edf2fe",
+        "tonalRamp": [
+          "#080b12",
+          "#21252e",
+          "#3e424b",
+          "#5d616b",
+          "#7e828d",
+          "#a0a5b0",
+          "#c4c9d5",
+          "#e9eefa"
+        ],
+        "darkCounterpart": "accent-soft-dark"
+      },
+      "accent-line": {
+        "role": "primary",
+        "displayName": "Selection Line",
+        "canonical": "#b9cbf8",
+        "tonalRamp": [
+          "#030726",
+          "#172345",
+          "#334065",
+          "#516087",
+          "#7181ab",
+          "#93a4cf",
+          "#b6c8f5",
+          "#e8eefe"
+        ],
+        "darkCounterpart": "accent-line-dark"
+      },
+      "accent-text": {
+        "role": "primary",
+        "displayName": "Accent Ink",
+        "canonical": "#2449bf",
+        "tonalRamp": [
+          "#010035",
+          "#05007a",
+          "#122fa4",
+          "#2d54cb",
+          "#4b78f2",
+          "#7aa1ff",
+          "#b1c9fe",
+          "#e8effe"
+        ],
+        "darkCounterpart": "accent-text-dark"
+      },
+      "on-accent": {
+        "role": "primary",
+        "displayName": "On Accent",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ],
+        "darkCounterpart": "on-accent-dark"
+      },
+      "focus": {
+        "role": "primary",
+        "displayName": "Focus Blue",
+        "canonical": "#2f5fe0",
+        "tonalRamp": [
+          "#000036",
+          "#02007b",
+          "#092bab",
+          "#2552d2",
+          "#4377fa",
+          "#78a2ff",
+          "#b0c9fe",
+          "#e7effe"
+        ],
+        "darkCounterpart": "focus-dark"
+      },
+      "success": {
+        "role": "tertiary",
+        "displayName": "Synced Green",
+        "canonical": "#0e7452",
+        "tonalRamp": [
+          "#000f08",
+          "#002d1d",
+          "#024f36",
+          "#0b7351",
+          "#3c9571",
+          "#62b993",
+          "#87deb7",
+          "#c1ffe1"
+        ],
+        "darkCounterpart": "success-dark"
+      },
+      "success-soft": {
+        "role": "tertiary",
+        "displayName": "Synced Wash",
+        "canonical": "#e7f5ee",
+        "tonalRamp": [
+          "#050d09",
+          "#1d2823",
+          "#3a4540",
+          "#59655f",
+          "#798680",
+          "#9ca9a2",
+          "#bfcdc6",
+          "#e4f2eb"
+        ],
+        "darkCounterpart": "success-soft-dark"
+      },
+      "success-line": {
+        "role": "tertiary",
+        "displayName": "Synced Line",
+        "canonical": "#a9dcc5",
+        "tonalRamp": [
+          "#000f08",
+          "#012d1f",
+          "#1c4c3a",
+          "#3d6d59",
+          "#5e8e7a",
+          "#80b29c",
+          "#a4d7c0",
+          "#c8fce5"
+        ],
+        "darkCounterpart": "success-line-dark"
+      },
+      "warning": {
+        "role": "tertiary",
+        "displayName": "Draft Amber",
+        "canonical": "#9a5800",
+        "tonalRamp": [
+          "#150700",
+          "#391d00",
+          "#613601",
+          "#8d5001",
+          "#b47029",
+          "#da934f",
+          "#feb879",
+          "#ffead9"
+        ],
+        "darkCounterpart": "warning-dark"
+      },
+      "warning-dot": {
+        "role": "tertiary",
+        "displayName": "Draft Dot",
+        "canonical": "#d98a0b",
+        "tonalRamp": [
+          "#140800",
+          "#361f01",
+          "#5e3801",
+          "#875403",
+          "#b47101",
+          "#e1911c",
+          "#feba69",
+          "#feebd7"
+        ],
+        "darkCounterpart": "warning-dot-dark"
+      },
+      "warning-soft": {
+        "role": "tertiary",
+        "displayName": "Draft Wash",
+        "canonical": "#fff4e2",
+        "tonalRamp": [
+          "#110a01",
+          "#2c2416",
+          "#494132",
+          "#696050",
+          "#8b8171",
+          "#aea493",
+          "#d2c8b6",
+          "#f8eddb"
+        ],
+        "darkCounterpart": "warning-soft-dark"
+      },
+      "warning-line": {
+        "role": "tertiary",
+        "displayName": "Draft Line",
+        "canonical": "#f3d299",
+        "tonalRamp": [
+          "#120900",
+          "#322200",
+          "#573d00",
+          "#795c24",
+          "#9c7d46",
+          "#c0a069",
+          "#e5c48c",
+          "#ffeccc"
+        ],
+        "darkCounterpart": "warning-line-dark"
+      },
+      "danger": {
+        "role": "tertiary",
+        "displayName": "Danger Red",
+        "canonical": "#c9302c",
+        "tonalRamp": [
+          "#1f0000",
+          "#4d0103",
+          "#810008",
+          "#b41519",
+          "#dd453d",
+          "#ff7367",
+          "#ffb3a9",
+          "#ffe9e6"
+        ],
+        "darkCounterpart": "danger-dark"
+      },
+      "danger-solid": {
+        "role": "tertiary",
+        "displayName": "Danger Solid",
+        "canonical": "#c9302c",
+        "tonalRamp": [
+          "#1f0000",
+          "#4d0103",
+          "#810008",
+          "#b41519",
+          "#dd453d",
+          "#ff7367",
+          "#ffb3a9",
+          "#ffe9e6"
+        ],
+        "darkCounterpart": "danger-solid-dark"
+      },
+      "danger-soft": {
+        "role": "tertiary",
+        "displayName": "Danger Wash",
+        "canonical": "#fdeeed",
+        "tonalRamp": [
+          "#110808",
+          "#2d2221",
+          "#4a3f3e",
+          "#6a5e5d",
+          "#8c7f7e",
+          "#afa1a0",
+          "#d4c5c4",
+          "#f9eae9"
+        ],
+        "darkCounterpart": "danger-soft-dark"
+      },
+      "danger-line": {
+        "role": "tertiary",
+        "displayName": "Danger Line",
+        "canonical": "#f4b9b6",
+        "tonalRamp": [
+          "#1f0002",
+          "#401415",
+          "#623231",
+          "#84514f",
+          "#a87270",
+          "#cd9492",
+          "#f3b8b5",
+          "#ffe8e7"
+        ],
+        "darkCounterpart": "danger-line-dark"
+      },
+      "k-agent": {
+        "role": "secondary",
+        "displayName": "Agent Teal",
+        "canonical": "#0c7167",
+        "tonalRamp": [
+          "#000f0c",
+          "#002c28",
+          "#014d46",
+          "#0b7167",
+          "#3c9388",
+          "#62b7ab",
+          "#87dccf",
+          "#b9fff4"
+        ],
+        "darkCounterpart": "k-agent-dark"
+      },
+      "k-agent-soft": {
+        "role": "secondary",
+        "displayName": "Agent Tile",
+        "canonical": "#e4f4f1",
+        "tonalRamp": [
+          "#040e0c",
+          "#1c2826",
+          "#384543",
+          "#576562",
+          "#778683",
+          "#9aa9a6",
+          "#becdca",
+          "#e3f3f0"
+        ],
+        "darkCounterpart": "k-agent-soft-dark"
+      },
+      "k-action": {
+        "role": "secondary",
+        "displayName": "Action Amber",
+        "canonical": "#a65a06",
+        "tonalRamp": [
+          "#160700",
+          "#3b1c01",
+          "#643300",
+          "#914d03",
+          "#ba6c25",
+          "#e08f4c",
+          "#feb881",
+          "#ffeadb"
+        ],
+        "darkCounterpart": "k-action-dark"
+      },
+      "k-action-soft": {
+        "role": "secondary",
+        "displayName": "Action Tile",
+        "canonical": "#fcf0e1",
+        "tonalRamp": [
+          "#110902",
+          "#2c2318",
+          "#4a4034",
+          "#6a5f53",
+          "#8b8073",
+          "#aea395",
+          "#d3c7b9",
+          "#f8ecde"
+        ],
+        "darkCounterpart": "k-action-soft-dark"
+      },
+      "k-skill": {
+        "role": "secondary",
+        "displayName": "Skill Violet",
+        "canonical": "#6d48c9",
+        "tonalRamp": [
+          "#0e002b",
+          "#2b0065",
+          "#4a179c",
+          "#6741c2",
+          "#8766e9",
+          "#a791fe",
+          "#c9bfff",
+          "#eeecfe"
+        ],
+        "darkCounterpart": "k-skill-dark"
+      },
+      "k-skill-soft": {
+        "role": "secondary",
+        "displayName": "Skill Tile",
+        "canonical": "#f0ebfc",
+        "tonalRamp": [
+          "#0d0914",
+          "#27232f",
+          "#443f4d",
+          "#635e6d",
+          "#847f8f",
+          "#a7a2b2",
+          "#cbc6d7",
+          "#f0ebfc"
+        ],
+        "darkCounterpart": "k-skill-soft-dark"
+      },
+      "k-workflow": {
+        "role": "secondary",
+        "displayName": "Workflow Blue",
+        "canonical": "#2f5fe0",
+        "tonalRamp": [
+          "#000036",
+          "#02007b",
+          "#092bab",
+          "#2552d2",
+          "#4377fa",
+          "#78a2ff",
+          "#b0c9fe",
+          "#e7effe"
+        ],
+        "darkCounterpart": "k-workflow-dark"
+      },
+      "k-workflow-soft": {
+        "role": "secondary",
+        "displayName": "Workflow Tile",
+        "canonical": "#edf2fe",
+        "tonalRamp": [
+          "#080b12",
+          "#21252e",
+          "#3e424b",
+          "#5d616b",
+          "#7e828d",
+          "#a0a5b0",
+          "#c4c9d5",
+          "#e9eefa"
+        ],
+        "darkCounterpart": "k-workflow-soft-dark"
+      },
+      "k-project": {
+        "role": "secondary",
+        "displayName": "Project Slate",
+        "canonical": "#4b5565",
+        "tonalRamp": [
+          "#050b17",
+          "#1d2533",
+          "#394252",
+          "#586272",
+          "#788394",
+          "#9aa6b8",
+          "#becadd",
+          "#e6efff"
+        ],
+        "darkCounterpart": "k-project-dark"
+      },
+      "k-project-soft": {
+        "role": "secondary",
+        "displayName": "Project Tile",
+        "canonical": "#eceef2",
+        "tonalRamp": [
+          "#0a0b0e",
+          "#242528",
+          "#404245",
+          "#5f6165",
+          "#808286",
+          "#a3a5a9",
+          "#c7c9cd",
+          "#eceef2"
+        ],
+        "darkCounterpart": "k-project-soft-dark"
+      },
+      "bg-dark": {
+        "role": "neutral",
+        "displayName": "Paper (Dark)",
+        "canonical": "#18191c",
+        "tonalRamp": [
+          "#0a0b0e",
+          "#242528",
+          "#414245",
+          "#606165",
+          "#818286",
+          "#a3a5a9",
+          "#c7c9cd",
+          "#edeef3"
+        ]
+      },
+      "bg-raised-dark": {
+        "role": "neutral",
+        "displayName": "Raised Paper (Dark)",
+        "canonical": "#1f2125",
+        "tonalRamp": [
+          "#090b0f",
+          "#232529",
+          "#404246",
+          "#5f6166",
+          "#808287",
+          "#a2a5aa",
+          "#c6c9cf",
+          "#eceef4"
+        ]
+      },
+      "surface-1-dark": {
+        "role": "neutral",
+        "displayName": "Shelf Gray (Dark)",
+        "canonical": "#1c1e21",
+        "tonalRamp": [
+          "#090b0e",
+          "#232528",
+          "#404245",
+          "#5f6165",
+          "#808286",
+          "#a2a5a9",
+          "#c6c9cd",
+          "#eceff3"
+        ]
+      },
+      "surface-2-dark": {
+        "role": "neutral",
+        "displayName": "Hover Gray (Dark)",
+        "canonical": "#26292e",
+        "tonalRamp": [
+          "#090b10",
+          "#22252a",
+          "#3f4248",
+          "#5e6167",
+          "#7f8289",
+          "#a1a5ac",
+          "#c5c9d0",
+          "#ebeff5"
+        ]
+      },
+      "surface-3-dark": {
+        "role": "neutral",
+        "displayName": "Pressed Gray (Dark)",
+        "canonical": "#2f3238",
+        "tonalRamp": [
+          "#090b10",
+          "#22252b",
+          "#3f4248",
+          "#5e6168",
+          "#7f8289",
+          "#a1a5ac",
+          "#c5c9d1",
+          "#ebeff6"
+        ]
+      },
+      "canvas-dark": {
+        "role": "neutral",
+        "displayName": "Canvas Field (Dark)",
+        "canonical": "#141518",
+        "tonalRamp": [
+          "#0a0b0e",
+          "#242528",
+          "#414245",
+          "#606165",
+          "#818286",
+          "#a3a5a9",
+          "#c7c9cd",
+          "#edeef3"
+        ]
+      },
+      "canvas-dot-dark": {
+        "role": "neutral",
+        "displayName": "Canvas Dot (Dark)",
+        "canonical": "#2b2e34",
+        "tonalRamp": [
+          "#090b10",
+          "#22252b",
+          "#3f4248",
+          "#5e6168",
+          "#7f828a",
+          "#a1a5ad",
+          "#c5c9d1",
+          "#eaeff7"
+        ]
+      },
+      "row-hover-dark": {
+        "role": "neutral",
+        "displayName": "Row Hover (Dark)",
+        "canonical": "#25282d",
+        "tonalRamp": [
+          "#090b10",
+          "#22252a",
+          "#3f4248",
+          "#5e6167",
+          "#7f8289",
+          "#a1a5ac",
+          "#c5c9d0",
+          "#ebeff6"
+        ]
+      },
+      "row-selected-dark": {
+        "role": "neutral",
+        "displayName": "Row Selected (Dark)",
+        "canonical": "#26304a",
+        "tonalRamp": [
+          "#04091f",
+          "#1b243d",
+          "#36415c",
+          "#55617e",
+          "#7582a0",
+          "#97a5c5",
+          "#bbc9ea",
+          "#e8eeff"
+        ]
+      },
+      "line-dark": {
+        "role": "neutral",
+        "displayName": "Hairline (Dark)",
+        "canonical": "#2a2d32",
+        "tonalRamp": [
+          "#090b0f",
+          "#22252a",
+          "#3f4247",
+          "#5e6167",
+          "#7f8288",
+          "#a1a5ab",
+          "#c5c9d0",
+          "#ebeff5"
+        ]
+      },
+      "line-strong-dark": {
+        "role": "neutral",
+        "displayName": "Strong Hairline (Dark)",
+        "canonical": "#353940",
+        "tonalRamp": [
+          "#080b11",
+          "#21252c",
+          "#3e4249",
+          "#5d6169",
+          "#7e838b",
+          "#a0a5ae",
+          "#c4c9d2",
+          "#eaeff8"
+        ]
+      },
+      "line-input-dark": {
+        "role": "neutral",
+        "displayName": "Field Border (Dark)",
+        "canonical": "#474c55",
+        "tonalRamp": [
+          "#080b12",
+          "#21252d",
+          "#3d424b",
+          "#5c616b",
+          "#7d838c",
+          "#a0a5b0",
+          "#c3c9d4",
+          "#e9effa"
+        ]
+      },
+      "text-dark": {
+        "role": "neutral",
+        "displayName": "Ink (Dark)",
+        "canonical": "#e9ebee",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#242527",
+          "#404244",
+          "#606164",
+          "#818285",
+          "#a3a5a8",
+          "#c7c9cc",
+          "#edeff2"
+        ]
+      },
+      "text-2-dark": {
+        "role": "neutral",
+        "displayName": "Secondary Ink (Dark)",
+        "canonical": "#aab0b9",
+        "tonalRamp": [
+          "#080b11",
+          "#21252c",
+          "#3d424a",
+          "#5c626a",
+          "#7d838b",
+          "#a0a5ae",
+          "#c3cad3",
+          "#e9eff9"
+        ]
+      },
+      "text-3-dark": {
+        "role": "neutral",
+        "displayName": "Tertiary Ink (Dark)",
+        "canonical": "#8d939d",
+        "tonalRamp": [
+          "#070b12",
+          "#21252d",
+          "#3d424b",
+          "#5c626b",
+          "#7d838c",
+          "#9fa5b0",
+          "#c3cad4",
+          "#e8effa"
+        ]
+      },
+      "placeholder-dark": {
+        "role": "neutral",
+        "displayName": "Placeholder Ink (Dark)",
+        "canonical": "#858b95",
+        "tonalRamp": [
+          "#070b12",
+          "#20252d",
+          "#3d424b",
+          "#5c626b",
+          "#7d838d",
+          "#9fa5b0",
+          "#c3cad4",
+          "#e8effa"
+        ]
+      },
+      "edge-dark": {
+        "role": "neutral",
+        "displayName": "Edge Gray (Dark)",
+        "canonical": "#737b87",
+        "tonalRamp": [
+          "#060b14",
+          "#1f252f",
+          "#3b424d",
+          "#5a626d",
+          "#7b838f",
+          "#9da6b2",
+          "#c1cad7",
+          "#e6effd"
+        ]
+      },
+      "accent-dark": {
+        "role": "primary",
+        "displayName": "Workbench Blue (Dark)",
+        "canonical": "#3d6af0",
+        "tonalRamp": [
+          "#010035",
+          "#06007a",
+          "#1028ad",
+          "#2950d5",
+          "#4776fd",
+          "#7aa1ff",
+          "#b1c9fe",
+          "#e8effe"
+        ]
+      },
+      "accent-hover-dark": {
+        "role": "primary",
+        "displayName": "Workbench Blue Hover (Dark)",
+        "canonical": "#3563e6",
+        "tonalRamp": [
+          "#010035",
+          "#04007b",
+          "#0d2aac",
+          "#2751d3",
+          "#4576fb",
+          "#79a1ff",
+          "#b0c9fe",
+          "#e7efff"
+        ]
+      },
+      "accent-press-dark": {
+        "role": "primary",
+        "displayName": "Workbench Blue Press (Dark)",
+        "canonical": "#355fd8",
+        "tonalRamp": [
+          "#010035",
+          "#05017a",
+          "#112ea5",
+          "#2c54cc",
+          "#4a78f3",
+          "#7aa1ff",
+          "#b0c9fe",
+          "#e7effe"
+        ]
+      },
+      "accent-soft-dark": {
+        "role": "primary",
+        "displayName": "Selection Wash (Dark)",
+        "canonical": "rgba(91, 132, 255, .15)",
+        "tonalRamp": [
+          "#020035",
+          "#090079",
+          "#182ea3",
+          "#3253ca",
+          "#5077f1",
+          "#7da1fe",
+          "#b2c8fe",
+          "#e8eefe"
+        ]
+      },
+      "accent-line-dark": {
+        "role": "primary",
+        "displayName": "Selection Line (Dark)",
+        "canonical": "rgba(122, 156, 255, .45)",
+        "tonalRamp": [
+          "#020034",
+          "#0c116c",
+          "#213690",
+          "#3d59b5",
+          "#5c7bdb",
+          "#7fa0ff",
+          "#b3c8fe",
+          "#e8eefe"
+        ]
+      },
+      "accent-text-dark": {
+        "role": "primary",
+        "displayName": "Accent Ink (Dark)",
+        "canonical": "#93adff",
+        "tonalRamp": [
+          "#030033",
+          "#11195f",
+          "#2a3a82",
+          "#475ba6",
+          "#667dcb",
+          "#87a1f2",
+          "#b5c7fe",
+          "#e9eefe"
+        ]
+      },
+      "focus-dark": {
+        "role": "primary",
+        "displayName": "Focus Blue (Dark)",
+        "canonical": "#7b9cff",
+        "tonalRamp": [
+          "#020034",
+          "#0c116c",
+          "#223690",
+          "#3e59b5",
+          "#5d7bdb",
+          "#7fa0ff",
+          "#b3c8fe",
+          "#e8eeff"
+        ]
+      },
+      "success-dark": {
+        "role": "tertiary",
+        "displayName": "Synced Green (Dark)",
+        "canonical": "#43c98d",
+        "tonalRamp": [
+          "#000f07",
+          "#002e1b",
+          "#004f32",
+          "#00744b",
+          "#0a9a65",
+          "#37c085",
+          "#65e6a8",
+          "#c3ffdd"
+        ]
+      },
+      "success-soft-dark": {
+        "role": "tertiary",
+        "displayName": "Synced Wash (Dark)",
+        "canonical": "rgba(67, 201, 141, .13)",
+        "tonalRamp": [
+          "#000f07",
+          "#002e1b",
+          "#004f32",
+          "#00744b",
+          "#0a9a65",
+          "#37c085",
+          "#65e6a8",
+          "#c3ffdd"
+        ]
+      },
+      "success-line-dark": {
+        "role": "tertiary",
+        "displayName": "Synced Line (Dark)",
+        "canonical": "rgba(67, 201, 141, .38)",
+        "tonalRamp": [
+          "#000f07",
+          "#002e1b",
+          "#004f32",
+          "#00744b",
+          "#0a9a65",
+          "#37c085",
+          "#65e6a8",
+          "#c3ffdd"
+        ]
+      },
+      "warning-dark": {
+        "role": "tertiary",
+        "displayName": "Draft Amber (Dark)",
+        "canonical": "#efb45a",
+        "tonalRamp": [
+          "#130900",
+          "#342101",
+          "#5a3b01",
+          "#825802",
+          "#ad7603",
+          "#d2993c",
+          "#f9bd63",
+          "#ffebd1"
+        ]
+      },
+      "warning-dot-dark": {
+        "role": "tertiary",
+        "displayName": "Draft Dot (Dark)",
+        "canonical": "#efb45a",
+        "tonalRamp": [
+          "#130900",
+          "#342101",
+          "#5a3b01",
+          "#825802",
+          "#ad7603",
+          "#d2993c",
+          "#f9bd63",
+          "#ffebd1"
+        ]
+      },
+      "warning-soft-dark": {
+        "role": "tertiary",
+        "displayName": "Draft Wash (Dark)",
+        "canonical": "rgba(239, 180, 90, .13)",
+        "tonalRamp": [
+          "#130900",
+          "#342101",
+          "#5a3b01",
+          "#825802",
+          "#ad7603",
+          "#d2993c",
+          "#f9bd63",
+          "#ffebd1"
+        ]
+      },
+      "warning-line-dark": {
+        "role": "tertiary",
+        "displayName": "Draft Line (Dark)",
+        "canonical": "rgba(239, 180, 90, .38)",
+        "tonalRamp": [
+          "#130900",
+          "#342101",
+          "#5a3b01",
+          "#825802",
+          "#ad7603",
+          "#d2993c",
+          "#f9bd63",
+          "#ffebd1"
+        ]
+      },
+      "danger-dark": {
+        "role": "tertiary",
+        "displayName": "Danger Red (Dark)",
+        "canonical": "#ff7b73",
+        "tonalRamp": [
+          "#1f0001",
+          "#4d0106",
+          "#800210",
+          "#aa2d2d",
+          "#d2524d",
+          "#fa776f",
+          "#ffb3ab",
+          "#ffe9e6"
+        ]
+      },
+      "danger-solid-dark": {
+        "role": "tertiary",
+        "displayName": "Danger Solid (Dark)",
+        "canonical": "#d63a34",
+        "tonalRamp": [
+          "#1f0000",
+          "#4d0003",
+          "#800108",
+          "#b61016",
+          "#df433b",
+          "#fe7467",
+          "#ffb3a9",
+          "#fee9e6"
+        ]
+      },
+      "danger-soft-dark": {
+        "role": "tertiary",
+        "displayName": "Danger Wash (Dark)",
+        "canonical": "rgba(255, 123, 115, .12)",
+        "tonalRamp": [
+          "#1f0001",
+          "#4d0106",
+          "#800210",
+          "#aa2d2d",
+          "#d2524d",
+          "#fa776f",
+          "#ffb3ab",
+          "#ffe9e6"
+        ]
+      },
+      "danger-line-dark": {
+        "role": "tertiary",
+        "displayName": "Danger Line (Dark)",
+        "canonical": "rgba(255, 123, 115, .40)",
+        "tonalRamp": [
+          "#1f0001",
+          "#4d0106",
+          "#800210",
+          "#aa2d2d",
+          "#d2524d",
+          "#fa776f",
+          "#ffb3ab",
+          "#ffe9e6"
+        ]
+      },
+      "k-agent-dark": {
+        "role": "secondary",
+        "displayName": "Agent Teal (Dark)",
+        "canonical": "#45c7b7",
+        "tonalRamp": [
+          "#000f0c",
+          "#002c27",
+          "#024d46",
+          "#047166",
+          "#089789",
+          "#37bcac",
+          "#64e1d1",
+          "#b9fff3"
+        ]
+      },
+      "k-agent-soft-dark": {
+        "role": "secondary",
+        "displayName": "Agent Tile (Dark)",
+        "canonical": "rgba(69, 199, 183, .14)",
+        "tonalRamp": [
+          "#000f0c",
+          "#002c27",
+          "#024d46",
+          "#047166",
+          "#089789",
+          "#37bcac",
+          "#64e1d1",
+          "#b9fff3"
+        ]
+      },
+      "k-action-dark": {
+        "role": "secondary",
+        "displayName": "Action Amber (Dark)",
+        "canonical": "#f0a65a",
+        "tonalRamp": [
+          "#150800",
+          "#381e00",
+          "#603700",
+          "#8b5204",
+          "#b6701b",
+          "#db9346",
+          "#ffb973",
+          "#ffebd8"
+        ]
+      },
+      "k-action-soft-dark": {
+        "role": "secondary",
+        "displayName": "Action Tile (Dark)",
+        "canonical": "rgba(240, 166, 90, .14)",
+        "tonalRamp": [
+          "#150800",
+          "#381e00",
+          "#603700",
+          "#8b5204",
+          "#b6701b",
+          "#db9346",
+          "#ffb973",
+          "#ffebd8"
+        ]
+      },
+      "k-skill-dark": {
+        "role": "secondary",
+        "displayName": "Skill Violet (Dark)",
+        "canonical": "#ad92ff",
+        "tonalRamp": [
+          "#0f002a",
+          "#2d0163",
+          "#49278b",
+          "#684aaf",
+          "#886cd5",
+          "#ab90fc",
+          "#cbbfff",
+          "#efecff"
+        ]
+      },
+      "k-skill-soft-dark": {
+        "role": "secondary",
+        "displayName": "Skill Tile (Dark)",
+        "canonical": "rgba(173, 146, 255, .15)",
+        "tonalRamp": [
+          "#0f002a",
+          "#2d0163",
+          "#49278b",
+          "#684aaf",
+          "#886cd5",
+          "#ab90fc",
+          "#cbbfff",
+          "#efecff"
+        ]
+      },
+      "k-workflow-dark": {
+        "role": "secondary",
+        "displayName": "Workflow Blue (Dark)",
+        "canonical": "#86a3ff",
+        "tonalRamp": [
+          "#030034",
+          "#0f1566",
+          "#26388a",
+          "#4359af",
+          "#627cd4",
+          "#83a0fb",
+          "#b4c8fe",
+          "#e8eefe"
+        ]
+      },
+      "k-workflow-soft-dark": {
+        "role": "secondary",
+        "displayName": "Workflow Tile (Dark)",
+        "canonical": "rgba(134, 163, 255, .15)",
+        "tonalRamp": [
+          "#030034",
+          "#0f1566",
+          "#26388a",
+          "#4359af",
+          "#627cd4",
+          "#83a0fb",
+          "#b4c8fe",
+          "#e8eefe"
+        ]
+      },
+      "k-project-dark": {
+        "role": "secondary",
+        "displayName": "Project Slate (Dark)",
+        "canonical": "#aeb6c2",
+        "tonalRamp": [
+          "#070b13",
+          "#1f252f",
+          "#3c424c",
+          "#5b626c",
+          "#7b838e",
+          "#9ea6b1",
+          "#c2cad6",
+          "#e7effc"
+        ]
+      },
+      "k-project-soft-dark": {
+        "role": "secondary",
+        "displayName": "Project Tile (Dark)",
+        "canonical": "rgba(174, 182, 194, .13)",
+        "tonalRamp": [
+          "#070b13",
+          "#1f252f",
+          "#3c424c",
+          "#5b626c",
+          "#7b838e",
+          "#9ea6b1",
+          "#c2cad6",
+          "#e7effc"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Project library hero title only."
+      },
+      "title-lg": {
+        "displayName": "Title Large",
+        "purpose": "Editor page headers and onboarding dialog title."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Dialog and section titles."
+      },
+      "title-sm": {
+        "displayName": "Title Small",
+        "purpose": "Panel headings such as the library title."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Default text, inputs, textareas, dialog copy."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Buttons, tool buttons, field labels, list names, node titles."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Rail labels, badges, edge labels, list meta, hints. The 12px floor."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Code editor, file paths, IDs, API provider marks."
+      }
+    },
+    "shadows": [
+      {
+        "name": "shadow-sm",
+        "value": "0 1px 2px rgba(16, 24, 40, .06)",
+        "dark": "0 1px 2px rgba(0, 0, 0, .35)",
+        "purpose": "Resting lift for buttons, workflow nodes, edge labels."
+      },
+      {
+        "name": "shadow-md",
+        "value": "0 4px 12px -2px rgba(16, 24, 40, .10), 0 2px 4px -2px rgba(16, 24, 40, .06)",
+        "dark": "0 6px 16px -4px rgba(0, 0, 0, .5), 0 2px 4px -2px rgba(0, 0, 0, .4)",
+        "purpose": "Node hover and selection; edge delete popover."
+      },
+      {
+        "name": "shadow-lg",
+        "value": "0 12px 32px -8px rgba(16, 24, 40, .22), 0 4px 10px -4px rgba(16, 24, 40, .10)",
+        "dark": "0 14px 32px -8px rgba(0, 0, 0, .62), 0 4px 10px -4px rgba(0, 0, 0, .45)",
+        "purpose": "Floating layers: profile menu, toasts, dialogs, test panel, sliding inspector."
+      },
+      {
+        "name": "focus-halo",
+        "value": "0 0 0 3px rgba(47, 95, 224, .22)",
+        "dark": "0 0 0 3px rgba(123, 156, 255, .30)",
+        "purpose": "Focused fields and search box; selected node (combined with shadow-md)."
+      },
+      {
+        "name": "focus-outline",
+        "value": "outline: 2px solid var(--focus); outline-offset: 2px",
+        "purpose": "Global :focus-visible ring on every interactive element."
+      },
+      {
+        "name": "backdrop",
+        "value": "rgba(17, 24, 39, .38)",
+        "dark": "rgba(0, 0, 0, .58)",
+        "purpose": "Modal dialog backdrop."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.2, .8, .2, 1)",
+        "purpose": "Standard ease-out for all state transitions and overlays."
+      },
+      {
+        "name": "t-fast",
+        "value": "140ms",
+        "purpose": "Hover, press, border, color and focus transitions."
+      },
+      {
+        "name": "t",
+        "value": "200ms",
+        "purpose": "Overlay entrances (menu pop-in, toast rise, dialog rise and scale) and the sliding inspector."
+      },
+      {
+        "name": "pulse-dot",
+        "value": "opacity to .35, 1 to 1.2s ease-in-out infinite",
+        "purpose": "Running test and connection-checking status dots only."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "durations collapse to .001ms",
+        "purpose": "prefers-reduced-motion: reduce disables animation and transition."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact-context",
+        "value": "1360px"
+      },
+      {
+        "name": "icon-actions",
+        "value": "1240px"
+      },
+      {
+        "name": "inspector-sheet",
+        "value": "1050px"
+      },
+      {
+        "name": "rail-icons",
+        "value": "860px"
+      },
+      {
+        "name": "stacked",
+        "value": "760px"
+      }
+    ],
+    "icons": {
+      "system": "Inline SVG sprite <symbol id=\"i-*\"> (24px grid, 1.7 stroke) plus CSS mask icons --ico-* (1.9 stroke) for button leading icons; round caps and joins; currentColor."
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single next step in a context: publish while draft, sync once published.",
+      "html": "<button class=\"ds-btn ds-btn-primary\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 15V4.5M7.5 9 12 4.5 16.5 9\"/><path d=\"M4.5 14.5v3a2.5 2.5 0 0 0 2.5 2.5h10a2.5 2.5 0 0 0 2.5-2.5v-3\"/></svg>发布到 Studio</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;height:32px;padding:0 12px;border:1px solid var(--line-input,#c3c9d2);border-radius:var(--r-sm,6px);background:var(--bg-raised,#fff);color:var(--text,#1f2329);box-shadow:var(--shadow-sm,0 1px 2px rgba(16,24,40,.06));font:500 13px/1 -apple-system,BlinkMacSystemFont,\"PingFang SC\",\"Microsoft YaHei\",sans-serif;cursor:pointer;transition:background 140ms cubic-bezier(.2, .8, .2, 1),border-color 140ms cubic-bezier(.2, .8, .2, 1),color 140ms cubic-bezier(.2, .8, .2, 1)}.ds-btn:hover{background:var(--surface-1,#f7f8fa)}.ds-btn:active{background:var(--surface-2,#eff1f4)}.ds-btn:focus-visible{outline:2px solid var(--focus,#2f5fe0);outline-offset:2px}.ds-btn-primary{border-color:var(--accent,#2f5fe0);background:var(--accent,#2f5fe0);color:var(--on-accent,#fff)}.ds-btn-primary:hover{border-color:var(--accent-hover,#2752c9);background:var(--accent-hover,#2752c9)}.ds-btn-primary:active{background:var(--accent-press,#2147b0)}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Every non-primary action; condenses to a 32px icon button below 1240px.",
+      "html": "<button class=\"ds-btn\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M8 5.6v12.8a.8.8 0 0 0 1.2.7l10.1-6.4a.8.8 0 0 0 0-1.4L9.2 4.9a.8.8 0 0 0-1.2.7z\"/></svg>测试 Workflow</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;height:32px;padding:0 12px;border:1px solid var(--line-input,#c3c9d2);border-radius:var(--r-sm,6px);background:var(--bg-raised,#fff);color:var(--text,#1f2329);box-shadow:var(--shadow-sm,0 1px 2px rgba(16,24,40,.06));font:500 13px/1 -apple-system,BlinkMacSystemFont,\"PingFang SC\",\"Microsoft YaHei\",sans-serif;cursor:pointer;transition:background 140ms cubic-bezier(.2, .8, .2, 1),border-color 140ms cubic-bezier(.2, .8, .2, 1),color 140ms cubic-bezier(.2, .8, .2, 1)}.ds-btn:hover{background:var(--surface-1,#f7f8fa)}.ds-btn:active{background:var(--surface-2,#eff1f4)}.ds-btn:focus-visible{outline:2px solid var(--focus,#2f5fe0);outline-offset:2px}"
+    },
+    {
+      "name": "Danger Button",
+      "kind": "button",
+      "refersTo": "button-danger",
+      "description": "Destructive action, isolated from siblings with extra space.",
+      "html": "<button class=\"ds-btn ds-btn-danger\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4.5 7h15M10 11v6M14 11v6\"/><path d=\"M6.5 7l.8 11.2a2 2 0 0 0 2 1.8h5.4a2 2 0 0 0 2-1.8L17.5 7M9.5 7V5a1.5 1.5 0 0 1 1.5-1.5h2A1.5 1.5 0 0 1 14.5 5v2\"/></svg>删除</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;height:32px;padding:0 12px;border:1px solid var(--line-input,#c3c9d2);border-radius:var(--r-sm,6px);background:var(--bg-raised,#fff);color:var(--text,#1f2329);box-shadow:var(--shadow-sm,0 1px 2px rgba(16,24,40,.06));font:500 13px/1 -apple-system,BlinkMacSystemFont,\"PingFang SC\",\"Microsoft YaHei\",sans-serif;cursor:pointer;transition:background 140ms cubic-bezier(.2, .8, .2, 1),border-color 140ms cubic-bezier(.2, .8, .2, 1),color 140ms cubic-bezier(.2, .8, .2, 1)}.ds-btn:hover{background:var(--surface-1,#f7f8fa)}.ds-btn:active{background:var(--surface-2,#eff1f4)}.ds-btn:focus-visible{outline:2px solid var(--focus,#2f5fe0);outline-offset:2px}.ds-btn-danger{color:var(--danger,#c9302c)}.ds-btn-danger:hover{border-color:var(--danger-line,#f4b9b6);background:var(--danger-soft,#fdeeed)}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "36px field with label above; accent border plus 3px halo on focus.",
+      "html": "<label class=\"ds-field\">名称<input class=\"ds-input\" type=\"text\" placeholder=\"例如：纪要提炼员\"></label>",
+      "css": ".ds-field{display:block;color:var(--text-2,#565e6b);font:500 13px/1.5 -apple-system,\"PingFang SC\",sans-serif}.ds-input{display:block;width:100%;box-sizing:border-box;height:36px;margin-top:6px;padding:7px 10px;border:1px solid var(--line-input,#c3c9d2);border-radius:var(--r-sm,6px);background:var(--bg,#fff);color:var(--text,#1f2329);font:400 14px/1.55 -apple-system,\"PingFang SC\",sans-serif;outline:none;transition:border-color 140ms cubic-bezier(.2, .8, .2, 1),box-shadow 140ms cubic-bezier(.2, .8, .2, 1)}.ds-input::placeholder{color:var(--placeholder,#6c7380)}.ds-input:hover{border-color:var(--text-3,#656c79)}.ds-input:focus{border-color:var(--accent,#2f5fe0);box-shadow:0 0 0 3px var(--focus-ring,rgba(47,95,224,.22))}"
+    },
+    {
+      "name": "Search Box",
+      "kind": "input",
+      "refersTo": "search-box",
+      "description": "Library filter with leading search icon.",
+      "html": "<label class=\"ds-search\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"6.5\"/><path d=\"m16 16 4 4\"/></svg><input type=\"search\" placeholder=\"搜索 Agent\"></label>",
+      "css": ".ds-search{display:flex;align-items:center;gap:8px;height:34px;padding:0 10px;border:1px solid var(--line-input,#c3c9d2);border-radius:var(--r-sm,6px);background:var(--bg,#fff);color:var(--text-3,#656c79);transition:border-color 140ms cubic-bezier(.2, .8, .2, 1),box-shadow 140ms cubic-bezier(.2, .8, .2, 1)}.ds-search:focus-within{border-color:var(--accent,#2f5fe0);box-shadow:0 0 0 3px var(--focus-ring,rgba(47,95,224,.22))}.ds-search input{flex:1;min-width:0;border:0;outline:none;background:transparent;color:var(--text,#1f2329);font:13px -apple-system,\"PingFang SC\",sans-serif}"
+    },
+    {
+      "name": "Status Badges with Lifecycle Dots",
+      "kind": "chip",
+      "refersTo": "status-badge",
+      "description": "Shared state vocabulary; draft/ready/synced carry a three-dot lifecycle marker.",
+      "html": "<span class=\"ds-badge ds-draft\">草稿</span> <span class=\"ds-badge ds-ready\">待同步</span> <span class=\"ds-badge ds-synced\">已同步</span> <span class=\"ds-badge ds-conflict\">冲突</span>",
+      "css": ".ds-badge{display:inline-flex;align-items:center;gap:6px;height:22px;padding:0 8px;border:1px solid var(--line-strong,#d9dde3);border-radius:999px;background:var(--surface-1,#f7f8fa);color:var(--text-2,#565e6b);font:500 12px/1 -apple-system,\"PingFang SC\",sans-serif;font-variant-numeric:tabular-nums;white-space:nowrap}.ds-badge::before{content:\"\";width:6px;height:6px;border-radius:50%;background:currentColor}.ds-draft,.ds-ready,.ds-synced{}.ds-draft::before,.ds-ready::before,.ds-synced::before{width:5px;height:5px;margin-right:12px}.ds-draft{border-color:var(--warning-line,#f3d299);background:var(--warning-soft,#fff4e2);color:var(--warning,#9a5800)}.ds-draft::before{background:var(--warning-dot,#d98a0b);box-shadow:7px 0 0 -1px var(--warning-line,#f3d299),14px 0 0 -1px var(--warning-line,#f3d299)}.ds-ready{border-color:var(--accent-line,#b9cbf8);background:var(--accent-soft,#edf2fe);color:var(--accent-text,#2449bf)}.ds-ready::before{box-shadow:7px 0 0 0 currentColor,14px 0 0 -1px var(--accent-line,#b9cbf8)}.ds-synced{border-color:var(--success-line,#a9dcc5);background:var(--success-soft,#e7f5ee);color:var(--success,#0e7452)}.ds-synced::before{box-shadow:7px 0 0 0 currentColor,14px 0 0 0 currentColor}.ds-conflict{border-color:var(--danger-line,#f4b9b6);background:var(--danger-soft,#fdeeed);color:var(--danger,#c9302c)}"
+    },
+    {
+      "name": "Navigation Rail",
+      "kind": "nav",
+      "refersTo": "rail-button",
+      "description": "68px icon rail with 12px labels; active uses row-selected and accent ink.",
+      "html": "<nav class=\"ds-rail\"><button class=\"ds-rail-btn\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"6\" cy=\"6.5\" r=\"2.25\"/><circle cx=\"18\" cy=\"6.5\" r=\"2.25\"/><circle cx=\"12\" cy=\"17.5\" r=\"2.25\"/><path d=\"M6 8.75v1.25a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V8.75M12 13v2.25\"/></svg><small>Workflow</small></button><button class=\"ds-rail-btn ds-active\" aria-current=\"page\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"4.5\" y=\"7.5\" width=\"15\" height=\"11.5\" rx=\"3.5\"/><path d=\"M12 7.5V4.5M9.5 12.5v1.5M14.5 12.5v1.5\"/></svg><small>Agent</small></button></nav>",
+      "css": ".ds-rail{display:inline-flex;flex-direction:column;align-items:center;gap:4px;width:68px;padding:10px 6px;box-sizing:border-box;border-right:1px solid var(--line,#e6e8ec);background:var(--surface-1,#f7f8fa)}.ds-rail-btn{width:56px;display:grid;justify-items:center;gap:3px;padding:7px 0 6px;border:0;border-radius:var(--r-md,8px);background:transparent;color:var(--text-2,#565e6b);cursor:pointer;transition:background 140ms cubic-bezier(.2, .8, .2, 1),color 140ms cubic-bezier(.2, .8, .2, 1)}.ds-rail-btn svg{width:20px;height:20px}.ds-rail-btn small{font:500 12px/1.2 -apple-system,\"PingFang SC\",sans-serif}.ds-rail-btn:hover{background:var(--row-hover,#eef0f3);color:var(--text,#1f2329)}.ds-rail-btn.ds-active{background:var(--row-selected,#e8edf8);color:var(--accent-text,#2449bf)}.ds-rail-btn:focus-visible{outline:2px solid var(--focus,#2f5fe0);outline-offset:2px}"
+    },
+    {
+      "name": "Library Row",
+      "kind": "custom",
+      "refersTo": "resource-row",
+      "description": "Type tile, name and meta; badges only for exceptions, none when synced.",
+      "html": "<button class=\"ds-row\"><span class=\"ds-tile\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"4.5\" y=\"7.5\" width=\"15\" height=\"11.5\" rx=\"3.5\"/><path d=\"M12 7.5V4.5M9.5 12.5v1.5M14.5 12.5v1.5\"/></svg></span><span class=\"ds-copy\"><strong>纪要提炼员</strong><small>agents/researcher</small></span></button>",
+      "css": ".ds-row{width:260px;display:grid;grid-template-columns:32px minmax(0,1fr);align-items:center;gap:10px;padding:7px 8px;border:0;border-radius:var(--r-md,8px);background:transparent;text-align:left;cursor:pointer;color:var(--text,#1f2329);transition:background 140ms cubic-bezier(.2, .8, .2, 1)}.ds-row:hover{background:var(--row-hover,#eef0f3)}.ds-row:focus-visible{outline:2px solid var(--focus,#2f5fe0);outline-offset:2px}.ds-tile{display:grid;place-items:center;width:32px;height:32px;border-radius:var(--r-md,8px);background:var(--k-agent-soft,#e4f4f1);color:var(--k-agent,#0c7167)}.ds-tile svg{width:18px;height:18px}.ds-copy{min-width:0}.ds-copy strong{display:block;font:500 13px/1.35 -apple-system,\"PingFang SC\",sans-serif}.ds-copy small{display:block;color:var(--text-3,#656c79);font:12px/1.35 -apple-system,\"PingFang SC\",sans-serif}"
+    },
+    {
+      "name": "Workflow Node",
+      "kind": "card",
+      "refersTo": "workflow-node",
+      "description": "190x92 canvas node card with type avatar and ports; accent border and halo when selected.",
+      "html": "<div class=\"ds-node\" tabindex=\"0\"><div class=\"ds-node-head\"><span class=\"ds-avatar\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"4.5\" y=\"7.5\" width=\"15\" height=\"11.5\" rx=\"3.5\"/><path d=\"M12 7.5V4.5M9.5 12.5v1.5M14.5 12.5v1.5\"/></svg></span><span><strong>纪要提炼员</strong><span>Agent</span></span></div><p>从会议纪要中提炼决策与行动项。</p><i class=\"ds-port ds-in\"></i><i class=\"ds-port ds-out\"></i></div>",
+      "css": ".ds-node{position:relative;width:190px;height:92px;box-sizing:border-box;border:1px solid var(--line-strong,#d9dde3);border-radius:10px;background:var(--bg-raised,#fff);box-shadow:var(--shadow-sm,0 1px 2px rgba(16,24,40,.06));color:var(--text,#1f2329);font-family:-apple-system,\"PingFang SC\",sans-serif;transition:border-color 140ms cubic-bezier(.2, .8, .2, 1),box-shadow 140ms cubic-bezier(.2, .8, .2, 1)}.ds-node:hover{border-color:var(--line-input,#c3c9d2);box-shadow:0 4px 12px -2px rgba(16,24,40,.10),0 2px 4px -2px rgba(16,24,40,.06)}.ds-node:focus-visible{outline:none;border-color:var(--accent,#2f5fe0);box-shadow:0 0 0 3px var(--focus-ring,rgba(47,95,224,.22)),0 4px 12px -2px rgba(16,24,40,.10)}.ds-node-head{display:flex;align-items:center;gap:8px;padding:10px 12px 6px}.ds-node-head strong{display:block;font-size:13px;font-weight:600;line-height:1.3}.ds-node-head span span{display:block;color:var(--text-3,#656c79);font-size:12px}.ds-avatar{display:grid;place-items:center;width:26px;height:26px;border-radius:7px;background:var(--k-agent-soft,#e4f4f1);color:var(--k-agent,#0c7167)}.ds-avatar svg{width:15px;height:15px}.ds-node p{margin:0;padding:0 12px;color:var(--text-2,#565e6b);font-size:12px;line-height:1.4;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.ds-port{position:absolute;top:50%;width:12px;height:12px;box-sizing:border-box;border:2px solid var(--line-input,#c3c9d2);border-radius:50%;background:var(--bg-raised,#fff);transform:translateY(-50%)}.ds-in{left:-7px}.ds-out{right:-7px}.ds-port:hover{border-color:var(--accent,#2f5fe0);background:var(--accent,#2f5fe0)}"
+    },
+    {
+      "name": "Handoff Edge Label",
+      "kind": "chip",
+      "refersTo": "edge-label",
+      "description": "Midpoint condition pill on an arrowed connector; accent when selected.",
+      "html": "<span class=\"ds-edge-label\">需要补充信息时</span> <span class=\"ds-edge-label ds-sel\">完成后交接</span>",
+      "css": ".ds-edge-label{display:inline-block;max-width:168px;padding:2px 8px;border:1px solid var(--line-strong,#d9dde3);border-radius:999px;background:var(--bg-raised,#fff);box-shadow:var(--shadow-sm,0 1px 2px rgba(16,24,40,.06));color:var(--text-2,#565e6b);font:12px/1.5 -apple-system,\"PingFang SC\",sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}.ds-edge-label:hover{color:var(--text,#1f2329)}.ds-edge-label.ds-sel{border-color:var(--accent-line,#b9cbf8);background:var(--accent-soft,#edf2fe);color:var(--accent-text,#2449bf)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Quiet Workbench",
+    "overview": "Workflow Studio is a category-standard desktop workbench executed at the craft level of Linear, Figma and Lark. Every screen answers three questions and nothing more: where am I, what state is this in, what do I do next. The world is cool neutral and light by default, following the operating system into a full dark theme; structure comes from three stacked neutral surfaces separated by 1px hairlines, not from color or decoration.\n\nColor is rationed by meaning. One blue accent marks the single next step, selection, focus and the current path. Resource type colors live only inside small type-icon tiles. Status colors appear only where a status is being stated. Everything else is gray, so that when color shows up it is information.\n\nDensity is professional but legible: a 14px body, a 12px floor, system UI faces in Chinese and Latin, tabular numerals for counts. Motion is short and functional (140 to 200ms ease-out) and exists only for state changes and floating layers. The interface rejects the category's default near-black node editor with neon nodes, purple AI glows, gradients, uppercase English kickers and tiny 6 to 9px text.",
+    "keyCharacteristics": [
+      "Light-first, cool-neutral, system dark theme via `prefers-color-scheme` with every token remapped.",
+      "Three-surface layering (white content and canvas chrome, light-gray rail and library, dotted canvas) bounded by 1px hairlines.",
+      "One blue accent; type colors confined to 20 to 32px icon tiles; status colors confined to status carriers.",
+      "One shared status vocabulary (draft / ready / synced / conflict) with a three-dot lifecycle marker.",
+      "Exactly one filled primary button per context, representing the next step.",
+      "Narrow windows condense controls to icon buttons; nothing is removed."
+    ],
+    "rules": [
+      {
+        "name": "The One Blue Rule",
+        "body": "The accent is reserved for the next step, selection, focus and the current path. It never decorates, never becomes a gradient and never glows.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tile-Only Type Color Rule",
+        "body": "Agent, Action, Skill and Workflow colors live only inside their type-icon tiles. If a type color appears outside a tile, it is wrong.",
+        "section": "colors"
+      },
+      {
+        "name": "The Meaning-Bound Status Rule",
+        "body": "Green, amber and red appear only where they state a status or a danger. Settled states stay neutral.",
+        "section": "colors"
+      },
+      {
+        "name": "The 12px Floor Rule",
+        "body": "No text renders below .75rem (12px). There are no literal pixel font sizes; every size comes from the --fs-* ramp (12 / 13 / 14 / 16 / 18 / 20 / 24).",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Count Rule",
+        "body": "Counts, IDs and paths use tabular numerals (`font-variant-numeric: tabular-nums`) or the mono stack so columns of numbers do not jitter.",
+        "section": "typography"
+      },
+      {
+        "name": "The No-Kicker Rule",
+        "body": "No uppercase English labels above headings; nothing in the build uses `text-transform: uppercase`. Context such as the current project name sits below the heading as a plain 12px tertiary subtitle.",
+        "section": "typography"
+      },
+      {
+        "name": "The Nothing Disappears Rule",
+        "body": "At every width each action stays reachable; secondary actions shrink to icon buttons with accessible names rather than being hidden.",
+        "section": "layout"
+      },
+      {
+        "name": "The Floating-Only Weight Rule",
+        "body": "Only things that float above the workspace get the overlay shadow. Panels inside the grid never cast shadows; they are separated by hairlines.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep exactly one accent-filled primary button per context, and make it the next step (publish while draft, sync once published).",
+      "**Do** express every resource state with the shared badge vocabulary and lifecycle dots: draft, ready, synced, conflict.",
+      "**Do** separate destructive actions from their siblings with extra space and danger tint.",
+      "**Do** condense secondary actions to 32px icon buttons with accessible names below 1240px instead of hiding them.",
+      "**Do** use the 2px focus outline at 2px offset on every interactive element, and the 3px focus halo on fields.",
+      "**Do** keep motion to 140 to 200ms on `cubic-bezier(.2, .8, .2, 1)` for state changes and floating layers, and honor `prefers-reduced-motion`.",
+      "**Do** remap tokens for dark theme rather than writing per-component dark overrides."
+    ],
+    "donts": [
+      "**Don't** set text below 12px or use literal pixel font sizes outside the --fs-* ramp.",
+      "**Don't** use type colors outside type-icon tiles, or status colors where no status is stated.",
+      "**Don't** badge settled synced rows in lists.",
+      "**Don't** use dark neon node-editor styling, purple AI glows, gradients or decorative glow shadows.",
+      "**Don't** add uppercase English kickers or eyebrows above headings.",
+      "**Don't** give in-grid panels drop shadows; reserve the overlay shadow for floating layers.",
+      "**Don't** use emoji or text glyphs as icons; use the linear SVG set."
+    ]
+  }
+}

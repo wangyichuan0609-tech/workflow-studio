@@ -1,0 +1,4 @@
+interface:
+  display_name: "Meeting Action Extractor"
+  short_description: "Extract meeting decisions and actionable tasks"
+  default_prompt: "Use $meeting-action-extractor to turn these meeting notes into structured action items."

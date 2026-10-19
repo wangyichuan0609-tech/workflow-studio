@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "mcp-tool-call",
+  "name": "MCP Tool Call",
+  "description": "通过 Streamable HTTP 调用 MCP Server 中的工具。",
+  "executor": "mcp",
+  "inputs": {
+    "arguments": "object"
+  },
+  "steps": [
+    {
+      "type": "mcp.call_tool",
+      "tool": "replace-with-tool-name",
+      "arguments": "{{inputs.arguments}}"
+    }
+  ],
+  "success": {
+    "resultReceived": true
+  },
+  "outputs": {
+    "result": "object"
+  },
+  "timeoutSeconds": 60,
+  "errorHandling": {
+    "strategy": "stop",
+    "retries": 0
+  },
+  "credentialRefs": []
+}

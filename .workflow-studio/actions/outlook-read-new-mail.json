@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 2,
+  "id": "outlook-read-new-mail",
+  "name": "读取 Outlook 新邮件",
+  "description": "通过 Microsoft Graph OAuth 读取 Outlook 收件箱中指定时间之后收到的新邮件。每 2 小时由项目调度器执行一次。",
+  "executor": "api",
+  "inputs": {
+    "since": "string",
+    "top": "number"
+  },
+  "steps": [
+    {
+      "type": "http.request",
+      "method": "GET",
+      "path": "/v1.0/me/mailFolders/inbox/messages?$filter=receivedDateTime%20gt%20{{inputs.since}}&$orderby=receivedDateTime%20asc&$top={{inputs.top}}&$select=id,receivedDateTime,subject,from,toRecipients,bodyPreview,isRead,webLink",
+      "headers": {
+        "Prefer": "outlook.body-content-type=\"text\""
+      }
+    }
+  ],
+  "success": {
+    "statusCodes": [
+      200
+    ]
+  },
+  "outputs": {
+    "messages": "array",
+    "nextLink": "string"
+  },
+  "timeoutSeconds": 60,
+  "errorHandling": {
+    "strategy": "stop",
+    "retries": 2
+  },
+  "credentialRefs": [
+    "microsoft-graph-outlook-oauth"
+  ],
+  "connection": {
+    "kind": "http",
+    "endpoint": "https://graph.microsoft.com",
+    "healthCheck": {
+      "method": "HEAD",
+      "path": "/v1.0/me",
+      "expectedStatuses": [
+        200,
+        204
+      ]
+    }
+  }
+}

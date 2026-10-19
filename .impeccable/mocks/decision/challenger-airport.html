@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1440">
+<title>Workflow Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--y:#FFCC00;--k:#0B0B0B;--p:#1A1A1A;--g:#E6E6E6;--w:#FFFFFF;--line:#D9D9D9;--line2:#EDEDED;--mute:#6B6B6B;--ink2:#3A3A3A;--bd:#2C2C2C;--red:#B42318}*{box-sizing:border-box;margin:0;padding:0}html,body{width:1440px;height:900px;overflow:hidden}
+body{position:relative;background:var(--g);color:var(--k);font:14px/1.45 "Hanken Grotesk","PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+.ic{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none}.ic.s18{width:18px;height:18px}.ic.s14{width:14px;height:14px}.ic.s20{width:20px;height:20px;stroke-width:2.25}.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace}
+.top{position:absolute;left:0;top:0;width:1440px;height:56px;background:var(--k);color:#fff;display:flex;align-items:center;padding-right:16px}.brand{width:72px;height:56px;display:grid;place-items:center}.mark{width:32px;height:32px;border-radius:7px;background:#fff;color:var(--k);display:grid;place-items:center}
+.ctx{display:flex;align-items:center;gap:10px;white-space:nowrap}.ctx b{font-size:15px;font-weight:700;letter-spacing:-.005em}.ctx i{width:1px;height:18px;background:#3A3A3A}.ctx span{font-size:13.5px;color:#EDEDED;font-weight:500}.ctx small{font-size:12.5px;color:#8C8C8C}.acts{margin-left:auto;display:flex;align-items:center;gap:8px}
+.tb{height:32px;padding:0 12px;border-radius:7px;border:1px solid var(--bd);background:var(--p);color:#F2F2F2;font-size:13px;font-weight:500;display:inline-flex;align-items:center;gap:7px;white-space:nowrap}.tb.danger{color:#FF9B93}.tb.gated{background:transparent;color:#7E7E7E;border-style:dashed}.tb .nx{width:7px;height:7px;border-radius:2px;background:var(--y)}
+.vsep{width:1px;height:24px;background:var(--bd);margin:0 4px}.conn{display:flex;align-items:center;gap:9px;height:36px;padding:0 11px;border-radius:7px;border:1px solid var(--bd)}.conn i{width:8px;height:8px;border-radius:50%;border:1.5px solid #8C8C8C}.conn b{font-size:12.5px;font-weight:600;display:block;line-height:1.15}.conn small{font-size:11px;color:#8C8C8C;display:block;line-height:1.2}
+.avatar{width:32px;height:32px;border-radius:50%;background:var(--p);border:1px solid var(--bd);display:grid;place-items:center;color:#DADADA}.rail{position:absolute;left:0;top:56px;width:72px;bottom:0;background:var(--k);padding:14px 0;display:flex;flex-direction:column;align-items:center;gap:4px}
+.ri{width:64px;display:flex;flex-direction:column;align-items:center;gap:4px;padding:5px 0;color:#9A9A9A;font-size:11px;font-weight:500}.ri .sq{width:38px;height:38px;border-radius:8px;background:var(--p);color:#fff;display:grid;place-items:center}.ri.on{color:#fff;font-weight:600}.ri.on .sq{background:#fff;color:var(--k)}.rsep{width:28px;height:1px;background:#2A2A2A;margin:6px 0}
+.band{position:absolute;left:72px;top:56px;right:0;height:52px;background:var(--y);display:flex;align-items:center;gap:14px;padding:0 16px 0 14px;white-space:nowrap}.band .sq{width:34px;height:34px;border-radius:6px;background:var(--k);color:#fff;display:grid;place-items:center}.band h1{font-size:20px;font-weight:700;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+.band h1 span{font-weight:500;color:rgba(11,11,11,.66);display:flex;align-items:center;gap:8px}.band p{font-size:13px;color:rgba(11,11,11,.8);padding-left:14px;border-left:1.5px solid rgba(11,11,11,.3);margin-left:4px}.band .r{margin-left:auto;display:flex;gap:16px;align-items:center}.lnk{font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px;border-bottom:1.5px solid var(--k);padding-bottom:1px}
+.kbtn{height:36px;padding:0 14px 0 16px;border-radius:7px;background:var(--k);color:#fff;font-weight:600;font-size:14px;display:flex;align-items:center;gap:10px}.lib{position:absolute;left:72px;top:108px;width:280px;bottom:0;background:#fff;border-right:1px solid var(--line);display:flex;flex-direction:column}.ph{display:flex;align-items:center;justify-content:space-between;padding:18px 16px 12px}
+h2{font-size:20px;font-weight:700;letter-spacing:-.01em;line-height:1.3}.ib{width:30px;height:30px;border-radius:7px;border:1px solid var(--line);display:grid;place-items:center;color:var(--ink2)}.search{margin:0 16px;height:36px;border:1px solid var(--line);border-radius:8px;display:flex;align-items:center;gap:8px;padding:0 10px;color:#8A8A8A;font-size:13px;background:#FAFAFA}
+.hint{font-size:12px;color:var(--mute);padding:8px 16px 0}.stats{display:grid;grid-template-columns:repeat(3,1fr);margin:14px 16px 4px;border:1px solid var(--line);border-radius:10px}.stats div{padding:7px 12px 8px}.stats div+div{border-left:1px solid var(--line)}.stats b{display:block;font-size:30px;font-weight:700;line-height:1.1;letter-spacing:-.03em}.stats span{font-size:12px;color:var(--mute);font-weight:500}
+.sec{font-size:12px;font-weight:600;color:var(--mute);padding:14px 16px 5px}.row{display:flex;align-items:center;gap:10px;padding:6px 16px;position:relative}.sq{display:grid;place-items:center;flex:none;background:var(--k);color:#fff}.row .sq{width:30px;height:30px;border-radius:6px}.row.off .sq{background:#C8C8C8}.row.off b{color:#5A5A5A}
+.row .t{flex:1;min-width:0}.row b{font-size:13.5px;font-weight:600;display:block;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.row small{font-size:12px;color:var(--mute);display:block;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row.cur{background:#F2F2F2}.row.cur:before{content:"";position:absolute;left:0;top:5px;bottom:5px;width:3px;background:var(--k);border-radius:0 2px 2px 0}.tag{font-size:11px;font-weight:600;padding:2px 7px;border-radius:5px;border:1px solid var(--line);color:var(--ink2);white-space:nowrap;display:inline-flex;align-items:center;gap:5px;background:#fff}.tag.dk{background:var(--k);border-color:var(--k);color:#fff}
+.end{color:#9A9A9A}.foot{margin-top:auto;border-top:1px solid var(--line2);padding:12px 16px;font-size:12px;color:var(--mute);display:flex;align-items:center;gap:8px}.foot i{width:7px;height:7px;border-radius:50%;background:var(--k)}.stage{position:absolute;left:352px;top:108px;width:768px;bottom:0}
+.bar{height:56px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;padding:0 16px;white-space:nowrap}.wname{font-size:20px;font-weight:700;letter-spacing:-.01em}.saved{font-size:12px;color:var(--mute);display:flex;align-items:center;gap:5px;margin-right:4px}.seg{display:flex;border:1px solid var(--line);border-radius:8px;padding:2px;gap:2px}
+.seg span{height:28px;padding:0 10px;border-radius:6px;font-size:13px;font-weight:500;display:flex;align-items:center;gap:6px;color:var(--ink2)}.seg span.on{background:var(--k);color:#fff}.warn{margin-left:auto;font-size:12.5px;font-weight:600;display:flex;align-items:center;gap:6px;height:30px;padding:0 9px 0 10px;border-radius:7px;border:1px solid var(--k)}
+.canvas{position:absolute;top:56px;left:0;right:0;bottom:0;background-color:var(--g);background-image:radial-gradient(rgba(11,11,11,.14) 1px,transparent 1.3px);background-size:20px 20px;overflow:hidden}.edges{position:absolute;left:0;top:0}.node{position:absolute;width:212px;background:#fff;border:1px solid #CBCBCB;border-radius:10px;box-shadow:0 1px 2px rgba(0,0,0,.05),0 6px 16px rgba(0,0,0,.05)}
+.node.sel{border-color:var(--k);box-shadow:0 0 0 1.5px var(--k),0 10px 24px rgba(0,0,0,.12)}.nh{display:flex;gap:10px;align-items:center;padding:12px 10px 8px 12px}.nh .sq{width:32px;height:32px;border-radius:7px}.nh b{font-size:14.5px;font-weight:650;display:block;line-height:1.25;white-space:nowrap}.nh small{font-size:11.5px;color:var(--mute)}.nh .end{margin-left:auto;align-self:flex-start}
+.nd{margin:0 12px;font-size:12.5px;color:var(--ink2);line-height:1.5;height:38px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}.nf{display:flex;gap:6px;padding:10px 12px 12px}.port{position:absolute;top:22px;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--k)}.port.l{left:-7px}.port.r{right:-7px}.node.sel .port{background:var(--k)}
+.elab{position:absolute;transform:translate(-50%,-50%);background:#fff;border:1.5px solid var(--k);border-radius:999px;padding:3px 10px;font-size:11.5px;font-weight:600;white-space:nowrap}
+.zoom{position:absolute;right:16px;bottom:16px;display:flex;align-items:center;background:#fff;border:1px solid var(--line);border-radius:8px;height:32px;font-size:12px;font-weight:600;color:var(--ink2)}.zoom span{padding:0 9px;display:flex;align-items:center;height:100%}.zoom span+span{border-left:1px solid var(--line2)}
+.chint{position:absolute;left:16px;bottom:16px;font-size:12px;color:var(--ink2);display:flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--line);padding:6px 10px;border-radius:8px}.chint i{width:20px;height:2px;background:var(--k);position:relative}.chint i:after{content:"";position:absolute;right:-1px;top:-3px;border:4px solid transparent;border-left:5px solid var(--k);border-right:0}
+.insp{position:absolute;right:0;top:108px;width:320px;bottom:0;background:#fff;border-left:1px solid var(--line);display:flex;flex-direction:column}.ph small{font-size:12px;color:var(--mute);font-weight:500}
+.selsum{display:flex;gap:12px;align-items:center;margin:0 16px;padding:12px;border:1px solid var(--line);border-radius:10px}.selsum .sq{width:40px;height:40px;border-radius:8px}.selsum b{font-size:15px;font-weight:700;display:block;line-height:1.3}.selsum small{font-size:12px;color:var(--mute)}
+.f{display:block;padding:12px 16px 0}.f>span{display:block;font-size:12px;font-weight:600;color:var(--ink2);margin-bottom:6px}.in{min-height:36px;border:1px solid var(--line);border-radius:8px;padding:7px 10px;font-size:13.5px;display:flex;align-items:center;gap:8px;background:#fff}
+.in.ta{min-height:74px;align-items:flex-start;line-height:1.5}.in.ro{background:#F4F4F4;color:var(--ink2);font-size:12.5px}.in .end{margin-left:auto}.sw{display:flex;align-items:center;justify-content:space-between;padding:14px 16px 0;font-size:13.5px;font-weight:500}
+.tg{width:36px;height:20px;border-radius:10px;background:var(--k);position:relative}.tg:after{content:"";position:absolute;right:2px;top:2px;width:16px;height:16px;border-radius:50%;background:#fff}.hand{margin:14px 16px 0;padding-top:12px;border-top:1px solid var(--line2)}.hand>span{font-size:12px;font-weight:600;color:var(--ink2)}
+.hand div{display:flex;gap:8px;align-items:flex-start;margin-top:8px;font-size:13px}.hand div b{font-weight:600;display:block}.hand div small{color:var(--mute);font-size:12px;display:block;line-height:1.4}.rm{margin:14px 16px 0;font-size:13px;font-weight:600;color:var(--red);display:flex;align-items:center;gap:6px}.sync{margin-top:auto;border-top:1px solid var(--line);padding:14px 16px 16px;background:#FAFAFA}
+.sync h3{font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:space-between}.sync ul{margin-top:8px}.sync li{list-style:none;display:flex;align-items:center;gap:8px;font-size:12.5px;padding:4px 0;color:var(--ink2)}.sync code{font-size:12px;background:#fff;border:1px solid var(--line2);padding:1px 6px;border-radius:5px;color:var(--k)}.sync p{font-size:12px;color:var(--mute);margin-top:8px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-agent" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></symbol><symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3 5 13.5h6L10 21l8-10.5h-6L13 3z"/></symbol><symbol id="i-script" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="2"/><path d="m7 9.5 3 2.5-3 2.5M12.5 15H17"/></symbol><symbol id="i-api" viewBox="0 0 24 24"><path d="M4 8.5h14l-3.5-3.5M20 15.5H6l3.5 3.5"/></symbol><symbol id="i-mcp" viewBox="0 0 24 24"><path d="M9 3.5v4.5M15 3.5v4.5M6.5 8h11v3a5.5 5.5 0 0 1-11 0V8zM12 16.5v4"/></symbol><symbol id="i-flow" viewBox="0 0 24 24"><rect x="3" y="4" width="6" height="6" rx="1.3"/><rect x="15" y="4" width="6" height="6" rx="1.3"/><rect x="9" y="14" width="6" height="6" rx="1.3"/><path d="M6 10v2a2 2 0 0 0 2 2h1M18 10v2a2 2 0 0 1-2 2h-1"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M5.5 5A1.5 1.5 0 0 1 7 3.5h11.5v14H7A1.5 1.5 0 0 0 5.5 19V5z"/><path d="M5.5 19A1.5 1.5 0 0 0 7 20.5h11.5v-3M9.5 8h5"/></symbol><symbol id="i-folder" viewBox="0 0 24 24"><path d="M3.5 7a2 2 0 0 1 2-2h4l2 2.5h7a2 2 0 0 1 2 2V17a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2V7z"/></symbol><symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol><symbol id="i-trash" viewBox="0 0 24 24"><path d="M4.5 7h15M9.5 7V4.5h5V7M6.5 7l1 12.5h9l1-12.5"/></symbol><symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="2"/><path d="M15.5 8.5V6A1.5 1.5 0 0 0 14 4.5H6A1.5 1.5 0 0 0 4.5 6v8A1.5 1.5 0 0 0 6 15.5h2.5"/></symbol><symbol id="i-play" viewBox="0 0 24 24"><path d="M7.5 5v14l11-7-11-7z"/></symbol>
+<symbol id="i-up" viewBox="0 0 24 24"><path d="M12 15V4.5M7.5 9 12 4.5 16.5 9M5 15v3.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V15"/></symbol><symbol id="i-lock" viewBox="0 0 24 24"><rect x="5.5" y="10.5" width="13" height="9.5" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></symbol><symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3.5 13.8 10.2 20.5 12l-6.7 1.8L12 20.5l-1.8-6.7L3.5 12l6.7-1.8L12 3.5z"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/></symbol><symbol id="i-refresh" viewBox="0 0 24 24"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3M19.5 4.5v4h-4"/></symbol><symbol id="i-cursor" viewBox="0 0 24 24"><path d="M5.5 4.5 11 19l2.2-6.3 6.3-2.2L5.5 4.5z"/></symbol>
+<symbol id="i-connect" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M7.6 16.4 16.4 7.6"/></symbol><symbol id="i-layout" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.3"/><rect x="13" y="13" width="7" height="7" rx="1.3"/><path d="M11 7.5h3.5a2 2 0 0 1 2 2V13"/></symbol><symbol id="i-fit" viewBox="0 0 24 24"><path d="M4.5 9V4.5H9M15 4.5h4.5V9M19.5 15v4.5H15M9 19.5H4.5V15"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4 21 19.5H3L12 4z"/><path d="M12 10v4M12 17v.01"/></symbol><symbol id="i-file" viewBox="0 0 24 24"><path d="M7 3.5h7l4.5 4.5v12.5H7A1.5 1.5 0 0 1 5.5 19V5A1.5 1.5 0 0 1 7 3.5z"/><path d="M14 3.5V8h4.5"/></symbol>
+<symbol id="i-more" viewBox="0 0 24 24"><path d="M6 12h.01M12 12h.01M18 12h.01" stroke-width="3"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol><symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol><symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+</defs></svg>
+
+<header class="top">
+  <div class="brand"><div class="mark"><svg class="ic s18"><use href="#i-flow"/></svg></div></div>
+  <div class="ctx"><b>Workflow Studio</b><i></i><span>多 Agent Workflow</span><small>编辑与同步本地编排</small></div>
+  <div class="acts">
+    <span class="tb danger"><svg class="ic s14"><use href="#i-trash"/></svg>删除</span>
+    <span class="tb"><svg class="ic s14"><use href="#i-copy"/></svg>复制调用方式</span>
+    <span class="tb"><svg class="ic s14"><use href="#i-play"/></svg>测试 Workflow</span>
+    <span class="tb"><span class="nx"></span>发布到 Studio</span>
+    <span class="tb gated" title="当前资源还是草稿，请先发布到 Studio"><svg class="ic s14"><use href="#i-lock"/></svg>同步到 Codex</span>
+    <span class="vsep"></span>
+    <span class="tb"><svg class="ic s14"><use href="#i-spark"/></svg>AI 助手</span>
+    <span class="conn"><i></i><span><b>未连接</b><small>点击配置</small></span></span>
+    <span class="avatar"><svg class="ic"><use href="#i-agent"/></svg></span>
+  </div>
+</header>
+
+<nav class="rail" aria-label="工作台">
+  <div class="ri"><span class="sq"><svg class="ic s18"><use href="#i-folder"/></svg></span>Projects</div>
+  <span class="rsep"></span>
+  <div class="ri"><span class="sq"><svg class="ic s18"><use href="#i-agent"/></svg></span>Agent</div>
+  <div class="ri"><span class="sq"><svg class="ic s18"><use href="#i-bolt"/></svg></span>Action</div>
+  <div class="ri on"><span class="sq"><svg class="ic s18"><use href="#i-flow"/></svg></span>Workflow</div>
+  <div class="ri"><span class="sq"><svg class="ic s18"><use href="#i-book"/></svg></span>Skills</div>
+</nav>
+
+<div class="band" role="status">
+  <span class="sq"><svg class="ic s20"><use href="#i-arrow"/></svg></span>
+  <h1>下一步：发布到 Studio<span><svg class="ic s18"><use href="#i-arrow"/></svg>再同步到 Codex</span></h1>
+  <p>草稿已保存。发布后可预览改动，确认后才写入项目文件。</p>
+  <div class="r"><span class="lnk"><svg class="ic s14"><use href="#i-alert"/></svg>1 条提醒，不影响发布</span><span class="kbtn"><svg class="ic"><use href="#i-up"/></svg>发布到 Studio<svg class="ic"><use href="#i-arrow"/></svg></span></div>
+</div>
+
+<aside class="lib">
+  <div class="ph"><h2>资源库</h2><span class="ib"><svg class="ic"><use href="#i-refresh"/></svg></span></div>
+  <div class="search"><svg class="ic"><use href="#i-search"/></svg>搜索名称或路径</div>
+  <p class="hint">点击加入画布，或直接拖拽。</p>
+  <div class="stats"><div><b>1</b><span>Workflow</span></div><div><b>3</b><span>Agents</span></div><div><b>4</b><span>Actions</span></div></div>
+  <div class="sec">已保存 Workflows</div>
+  <div class="row cur"><span class="sq"><svg class="ic"><use href="#i-flow"/></svg></span><span class="t"><b>会议纪要行动清单流</b><small>3 Nodes · 2 Connections</small></span><span class="tag">已加载</span></div>
+  <div class="sec">Agents</div>
+  <div class="row"><span class="sq"><svg class="ic"><use href="#i-agent"/></svg></span><span class="t"><b>邮件内容归纳员</b><small class="mono">agents/builder</small></span><span class="tag">画布中</span></div>
+  <div class="row"><span class="sq"><svg class="ic"><use href="#i-agent"/></svg></span><span class="t"><b>纪要提炼员</b><small class="mono">agents/researcher</small></span><span class="tag">画布中</span></div>
+  <div class="row"><span class="sq"><svg class="ic"><use href="#i-agent"/></svg></span><span class="t"><b>Reviewer</b><small class="mono">agents/reviewer</small></span><svg class="ic end"><use href="#i-plus"/></svg></div>
+  <div class="sec">Agent 已授权的 Actions</div>
+  <div class="row"><span class="sq"><svg class="ic"><use href="#i-api"/></svg></span><span class="t"><b>API Request</b><small>api · 1 Agent 已授权</small></span><svg class="ic end"><use href="#i-plus"/></svg></div>
+  <div class="row off"><span class="sq"><svg class="ic"><use href="#i-mcp"/></svg></span><span class="t"><b>MCP Tool Call</b><small>mcp · 尚未被 Agent 授权</small></span><svg class="ic end"><use href="#i-lock"/></svg></div>
+  <div class="row"><span class="sq"><svg class="ic"><use href="#i-script"/></svg></span><span class="t"><b>Normalize Meeting Actions</b><small>script · 1 Agent 已授权</small></span><span class="tag">画布中</span></div>
+  <div class="row off"><span class="sq"><svg class="ic"><use href="#i-api"/></svg></span><span class="t"><b>读取 Outlook 新邮件</b><small>api · 尚未被 Agent 授权</small></span><svg class="ic end"><use href="#i-lock"/></svg></div>
+  <div class="foot"><i></i>已扫描项目 · 3 Agents · 4 Actions</div>
+</aside>
+
+<main class="stage">
+  <div class="bar">
+    <span class="wname">会议纪要行动清单流</span>
+    <span class="saved"><svg class="ic s14"><use href="#i-check"/></svg>已保存到 Studio</span>
+    <div class="seg"><span class="on"><svg class="ic s14"><use href="#i-cursor"/></svg>选择</span><span><svg class="ic s14"><use href="#i-connect"/></svg>连接</span></div>
+    <div class="seg"><span><svg class="ic s14"><use href="#i-layout"/></svg>排列</span><span><svg class="ic s14"><use href="#i-fit"/></svg>适应</span></div>
+    <span class="warn"><svg class="ic s14"><use href="#i-alert"/></svg>1 条提醒<svg class="ic s14"><use href="#i-chev"/></svg></span>
+  </div>
+  <div class="canvas" aria-label="工作流画布">
+    <svg class="edges" width="768" height="736" viewBox="0 0 768 736" aria-hidden="true">
+      <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#0B0B0B"/></marker></defs>
+      <g fill="none" stroke="#0B0B0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah)">
+        <path d="M234 165 H245 Q253 165 253 173 V397 Q253 405 261 405 H270"/>
+        <path d="M496 405 H507 Q515 405 515 397 V173 Q515 165 523 165 H532"/>
+      </g>
+    </svg>
+    <div class="node sel" style="left:16px;top:136px"><span class="port l"></span><span class="port r"></span>
+      <div class="nh"><span class="sq"><svg class="ic s18"><use href="#i-agent"/></svg></span><span><b>纪要提炼员</b><small>Agent · AGENT.md</small></span><svg class="ic end"><use href="#i-more"/></svg></div>
+      <div class="nd">使用 $meeting-action-extractor 提取决定、行动项与待确认问题</div>
+      <div class="nf"><span class="tag">继承模型</span><span class="tag">可并行</span></div></div>
+    <div class="node" style="left:278px;top:376px"><span class="port l"></span><span class="port r"></span>
+      <div class="nh"><span class="sq"><svg class="ic s18"><use href="#i-script"/></svg></span><span><b>本地标准化行动项</b><small>Action · script</small></span><svg class="ic end"><use href="#i-more"/></svg></div>
+      <div class="nd">在本地校验会议行动项 JSON，生成 TASK 编号，并将待确认项排在最后。</div>
+      <div class="nf"><span class="tag"><svg class="ic s14"><use href="#i-agent"/></svg>纪要提炼员 授权</span></div></div>
+    <div class="node" style="left:540px;top:136px"><span class="port l"></span><span class="port r"></span>
+      <div class="nh"><span class="sq"><svg class="ic s18"><use href="#i-agent"/></svg></span><span><b>行动清单审核员</b><small>Agent · AGENT.md</small></span><svg class="ic end"><use href="#i-more"/></svg></div>
+      <div class="nd">对照原始记录审查行动项，输出最终 Markdown</div>
+      <div class="nf"><span class="tag dk"><svg class="ic s14"><use href="#i-alert"/></svg>1 条提醒</span><span class="tag">可并行</span></div></div>
+    <span class="elab" style="left:253px;top:320px">提炼 JSON 完成后</span>
+    <span class="elab" style="left:515px;top:320px">标准化完成后</span>
+    <div class="chint"><i></i>从节点右侧端口拖到另一个节点左侧端口即可连接</div>
+    <div class="zoom"><span><svg class="ic s14"><use href="#i-minus"/></svg></span><span>100%</span><span><svg class="ic s14"><use href="#i-plus"/></svg></span></div>
+  </div>
+</main>
+
+<aside class="insp">
+  <div class="ph"><h2>配置</h2><small>已选择 1 个节点</small></div>
+  <div class="selsum"><span class="sq"><svg class="ic s20"><use href="#i-agent"/></svg></span><span><b>纪要提炼员</b><small class="mono">Agent · agents/researcher</small></span></div>
+  <label class="f"><span>画布名称</span><div class="in">纪要提炼员</div></label>
+  <label class="f"><span>职责</span><div class="in ta">使用 $meeting-action-extractor 提取决定、行动项与待确认问题</div></label>
+  <label class="f"><span>执行入口</span><div class="in ro mono"><svg class="ic s14"><use href="#i-file"/></svg>agents/researcher/AGENT.md</div></label>
+  <label class="f"><span>模型</span><div class="in">继承当前 Codex 模型<svg class="ic end"><use href="#i-chev"/></svg></div></label>
+  <div class="sw">允许同层并行<span class="tg"></span></div>
+  <div class="hand"><span>交接给</span><div><svg class="ic" style="margin-top:2px"><use href="#i-arrow"/></svg><span><b>本地标准化行动项</b><small>提炼 JSON 完成后进行本地校验、编号与排序</small></span></div></div>
+  <div class="rm"><svg class="ic s14"><use href="#i-trash"/></svg>从画布移除</div>
+  <div class="sync">
+    <h3>Codex 同步<span class="tag">仅限本项目</span></h3>
+    <ul><li><svg class="ic s14"><use href="#i-file"/></svg><code class="mono">.codex/workflows/*.json</code></li><li><svg class="ic s14"><use href="#i-folder"/></svg><code class="mono">.agents/skills/</code></li><li><svg class="ic s14"><use href="#i-file"/></svg><code class="mono">AGENTS.md</code>managed block</li></ul>
+    <p>同步前先预览改动，确认后才写入以上文件。</p>
+  </div>
+</aside>
+</body>
+</html>

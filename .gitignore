@@ -1,0 +1,20 @@
+# Local AI credentials
+AI Assistant Info.json
+
+# Local caches and generated files
+__pycache__/
+*.py[cod]
+.DS_Store
+.venv/
+
+# Machine-local runtime bindings written by Workflow Studio
+.workflow-studio/action-runtime.json
+.workflow-studio-tutorial.json
+.env
+.env.*
+
+# Internal AI collaboration docs (kept locally, not published)
+PROJECT_MEMORY.md
+PRODUCT.md
+DESIGN.md
+AGENTS.md

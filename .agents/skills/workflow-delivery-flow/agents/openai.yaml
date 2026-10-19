@@ -1,0 +1,6 @@
+interface:
+  display_name: "会议纪要行动清单流"
+  short_description: "Run 会议纪要行动清单流 agent workflow"
+  default_prompt: "开始"
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1440">
+<title>Workflow Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--panel:#F4F5F7;--canvas:#FCFCFD;--line:#E5E7EB;--line-2:#EDEEF1;--ink:#111827;--ink-2:#374151;--ink-3:#4B5563;--muted:#6B7280;--faint:#9CA3AF;--accent:#4F46E5;--accent-50:#EEF2FF;--accent-100:#E0E7FF;--ok:#16A34A;--ok-bg:#F0FDF4;--ok-line:#BBF7D0;--warn:#B45309;--warn-bg:#FFFBEB;--warn-line:#FDE68A;--danger:#DC2626;--sans:"Inter","PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;--mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;--sh:0 1px 2px rgba(17,24,39,.05)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1440px;height:900px;overflow:hidden}
+body{background:var(--bg);color:var(--ink);font:400 13px/1.45 var(--sans);font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased;display:grid;grid-template-rows:56px 844px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none}.m{font-family:var(--mono);font-size:11.5px;letter-spacing:-.01em}
+/* top bar */
+.top{display:flex;align-items:center;gap:8px;padding:0 16px 0 18px;border-bottom:1px solid var(--line);background:#fff}.brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:14.5px;letter-spacing:-.01em;padding-right:16px;border-right:1px solid var(--line);height:24px}.ctx{display:flex;align-items:baseline;gap:10px;padding-left:8px}.ctx b{font-weight:500;font-size:13.5px}.ctx span{color:var(--muted);font-size:12.5px}.sp{flex:1}
+.btn{height:32px;display:inline-flex;align-items:center;gap:6px;padding:0 12px;border-radius:8px;font-weight:500;font-size:13px;border:1px solid var(--line);background:#fff;color:var(--ink-2);box-shadow:var(--sh);white-space:nowrap}.btn .i{width:15px;height:15px;color:var(--muted)}.btn.ghost{border-color:transparent;background:transparent;box-shadow:none}.btn.del{color:var(--danger);margin-right:4px}.btn.del .i{color:var(--danger)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 1px 2px rgba(79,70,229,.35),inset 0 1px 0 rgba(255,255,255,.14)}.btn.pri .i{color:#fff}.vr{width:1px;height:20px;background:var(--line);margin:0 6px}.conn{display:flex;align-items:center;gap:8px;height:32px;padding:0 10px;border-radius:8px;border:1px solid var(--line);background:#fff;font-size:12.5px;font-weight:500;color:var(--ink-2)}.conn i{width:7px;height:7px;border-radius:50%;background:var(--faint);box-shadow:0 0 0 3px #F3F4F6}.conn small{color:var(--faint);font-size:12px;font-weight:400}
+.avatar{width:32px;height:32px;border-radius:50%;background:#EEF0F3;display:grid;place-items:center;color:var(--ink-3);margin-left:4px}
+/* workspace */
+.ws{display:grid;grid-template-columns:64px 272px 792px 312px;min-height:0}.rail{background:var(--panel);border-right:1px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 0}.ri{width:52px;padding:7px 0 6px;border-radius:9px;display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--muted)}.ri .i{width:19px;height:19px}.ri small{font-size:10.5px;font-weight:500;letter-spacing:.01em}
+.ri.on{background:var(--accent-50);color:var(--accent)}.rail hr{width:28px;border:0;border-top:1px solid var(--line);margin:4px 0}.lib{background:var(--panel);border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0}.ph{display:flex;align-items:center;justify-content:space-between;padding:18px 16px 12px}
+h2{font-size:20px;font-weight:600;letter-spacing:-.015em;line-height:1.2}.ib{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;color:var(--muted)}.lib .ib{border:1px solid var(--line);background:#fff;box-shadow:var(--sh)}.search{margin:0 16px;height:34px;display:flex;align-items:center;gap:8px;padding:0 10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--faint);font-size:13px}
+.hint{color:var(--muted);font-size:12px;padding:8px 16px 4px}.grp{padding:10px 8px 2px}.gl{display:flex;justify-content:space-between;padding:0 8px 6px;font-size:12px;font-weight:500;color:var(--muted)}.gl span{color:var(--faint);font-weight:400}.it{display:flex;align-items:center;gap:10px;padding:7px 8px;border-radius:8px;border:1px solid transparent}
+.it.cur{background:#fff;border-color:var(--line);box-shadow:var(--sh)}.it.hov{background:rgba(17,24,39,.04)}.av{width:28px;height:28px;border-radius:7px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;font-size:12.5px;font-weight:600;color:var(--ink-2);flex:none}.av .i{width:15px;height:15px;color:var(--ink-3)}
+.av.wf{background:var(--accent-50);border-color:var(--accent-100)}.av.wf .i{color:var(--accent)}.tx{flex:1;min-width:0;display:flex;flex-direction:column}.tx b{font-weight:500;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.tx small{color:var(--muted);font-size:11.5px}.it.lock b{color:var(--ink-3)}.it.lock .tx small{color:var(--faint)}.it.lock>.i{color:var(--faint);width:14px;height:14px}.add{width:22px;height:22px;border-radius:6px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;color:var(--ink-3)}.add .i{width:13px;height:13px}
+.badge{font-size:11px;font-weight:500;padding:1px 7px;border-radius:999px;border:1px solid var(--ok-line);background:var(--ok-bg);color:#15803D}.lf{margin-top:auto;border-top:1px solid var(--line);padding:12px 16px;display:flex;align-items:center;gap:8px;color:var(--muted);font-size:12px}.lf i{width:7px;height:7px;border-radius:50%;background:var(--ok)}
+/* canvas */
+.stage{display:flex;flex-direction:column;min-width:0}.tb{height:56px;display:flex;align-items:center;gap:10px;padding:0 16px 0 20px;border-bottom:1px solid var(--line);background:#fff}.tb h1{font-size:20px;font-weight:600;letter-spacing:-.015em;white-space:nowrap}.saved{display:flex;align-items:center;gap:5px;color:var(--muted);font-size:12px;white-space:nowrap;margin-right:6px}.saved .i{width:14px;height:14px;color:var(--ok)}
+.seg{display:flex;padding:2px;background:var(--panel);border:1px solid var(--line-2);border-radius:9px}.seg button{height:28px;display:flex;align-items:center;gap:5px;padding:0 10px;border-radius:7px;font-size:12.5px;font-weight:500;color:var(--muted)}.seg button .i{width:14px;height:14px}.seg button.on{background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(17,24,39,.08),0 0 0 1px rgba(17,24,39,.04)}.seg button.on .i{color:var(--accent)}.tb .btn{height:32px;padding:0 9px;font-size:12.5px;color:var(--ink-3)}
+.warnp{display:flex;align-items:center;gap:6px;height:30px;padding:0 10px;border-radius:8px;border:1px solid var(--warn-line);background:var(--warn-bg);color:var(--warn);font-size:12.5px;font-weight:500;white-space:nowrap}.warnp .i{width:14px;height:14px}.cv{position:relative;flex:1;background-color:var(--canvas);background-image:radial-gradient(circle,#D8DBE1 1px,transparent 1.3px);background-size:20px 20px;background-position:10px 10px;overflow:hidden}.cv svg.edges{position:absolute;inset:0;width:100%;height:100%}.node{position:absolute;width:212px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 12px 10px;box-shadow:0 1px 2px rgba(17,24,39,.05),0 6px 16px -6px rgba(17,24,39,.10)}
+.node.sel{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,70,229,.14),0 6px 16px -6px rgba(17,24,39,.12)}.nh{display:flex;align-items:center;gap:10px}.nh .tx b{font-size:13.5px;font-weight:600}.nh .more{color:var(--faint)}.nd{font-size:12.5px;line-height:1.55;color:var(--ink-3);margin:10px 0}.nd code{font-family:var(--mono);font-size:11px;background:#F3F4F6;border-radius:4px;padding:0 3px;color:var(--ink-2)}
+.nf{display:flex;align-items:center;justify-content:space-between;gap:8px;border-top:1px solid var(--line-2);padding-top:8px;color:var(--muted)}.chip{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:500;padding:1px 6px;border-radius:999px;background:#F3F4F6;color:var(--ink-3);white-space:nowrap}.chip.w{background:var(--warn-bg);color:var(--warn);box-shadow:inset 0 0 0 1px var(--warn-line)}.chip .i{width:11px;height:11px}.port{position:absolute;top:30px;width:10px;height:10px;border-radius:50%;background:#fff;border:1.5px solid #A3A9B4}.port.in{left:-5.5px}.port.out{right:-5.5px}
+.sel .port{border-color:var(--accent)}.zoom{position:absolute;right:16px;bottom:16px;display:flex;align-items:center;background:#fff;border:1px solid var(--line);border-radius:9px;box-shadow:0 2px 6px rgba(17,24,39,.06);padding:2px}.zoom button{width:28px;height:28px;display:grid;place-items:center;color:var(--muted);border-radius:7px}.zoom span{font-size:12px;font-weight:500;color:var(--ink-2);padding:0 6px;font-variant-numeric:tabular-nums}.zoom i{width:1px;height:16px;background:var(--line);margin:0 2px}
+/* inspector */
+.insp{background:var(--panel);border-left:1px solid var(--line);display:flex;flex-direction:column;padding:18px 20px 16px;min-height:0}.sum{display:flex;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid var(--line);margin-bottom:16px}.sum .av{width:36px;height:36px;border-radius:9px;font-size:14px}.sum .tx b{font-size:14px;font-weight:600}.f{display:block;margin-bottom:14px}.f>span{display:block;font-size:12.5px;font-weight:500;color:var(--ink-2);margin-bottom:6px}
+.inp{display:flex;align-items:center;gap:8px;min-height:34px;padding:0 10px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:13px;color:var(--ink);box-shadow:var(--sh)}.inp.ta{display:block;padding:8px 10px;line-height:1.55;min-height:78px}.inp.ro{background:#F9FAFB;color:var(--ink-3);box-shadow:none}.inp.ro .i,.inp .chev{color:var(--faint);width:14px;height:14px;margin-left:auto}.inp.foc{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,70,229,.12)}
+.sw{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;margin-bottom:12px}.sw b{font-weight:500;font-size:13px;display:block}.sw small{color:var(--muted);font-size:11.5px}.tg{width:32px;height:18px;border-radius:999px;background:var(--accent);position:relative;flex:none}.tg::after{content:"";position:absolute;top:2px;right:2px;width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.2)}.rm{display:inline-flex;align-items:center;gap:6px;color:var(--danger);font-size:12.5px;font-weight:500;padding:4px 0}.rm .i{width:14px;height:14px}
+.sync{margin-top:auto;border-top:1px solid var(--line);padding-top:14px}.sync-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}.sync-h b{font-size:13px;font-weight:600}.tag{font-size:11px;font-weight:500;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:999px;padding:1px 8px}.sync ul{list-style:none;display:flex;flex-direction:column;gap:6px}.sync li{display:flex;align-items:center;gap:8px;color:var(--ink-2)}.sync li .i{width:14px;height:14px;color:var(--faint)}.sync li em{font-style:normal;color:var(--muted);font-size:12px}
+.sync p{margin-top:10px;color:var(--muted);font-size:12px;line-height:1.5}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4.5h6V7M18 7l-.8 12.2a2 2 0 0 1-2 1.8H8.8a2 2 0 0 1-2-1.8L6 7M10 11v6M14 11v6"/></symbol><symbol id="copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="12" height="12" rx="2.5"/><path d="M15.5 8.5V6a2.5 2.5 0 0 0-2.5-2.5H6A2.5 2.5 0 0 0 3.5 6v7A2.5 2.5 0 0 0 6 15.5h2.5"/></symbol><symbol id="play" viewBox="0 0 24 24"><path d="M7.5 5.2v13.6a1 1 0 0 0 1.5.86l11-6.8a1 1 0 0 0 0-1.72l-11-6.8a1 1 0 0 0-1.5.86z"/></symbol><symbol id="upload" viewBox="0 0 24 24"><path d="M12 15V4M7.5 8.5 12 4l4.5 4.5M4 14v4a2.5 2.5 0 0 0 2.5 2.5h11A2.5 2.5 0 0 0 20 18v-4"/></symbol><symbol id="sync" viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 0-14.3-4.6L4 9M4 4v5h5M4 12.5a8 8 0 0 0 14.3 4.6L20 15M20 20v-5h-5"/></symbol><symbol id="spark" viewBox="0 0 24 24"><path d="M11 3.5l1.9 5.1 5.1 1.9-5.1 1.9L11 17.5l-1.9-5.1L4 10.5l5.1-1.9zM18.5 15v5M16 17.5h5"/></symbol><symbol id="user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></symbol><symbol id="folder" viewBox="0 0 24 24"><path d="M3.5 7.5A2 2 0 0 1 5.5 5.5h4l2 2.2h7a2 2 0 0 1 2 2V17a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2z"/></symbol>
+<symbol id="bot" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="3.5"/><path d="M12 8V4.5M9.5 13.5v1.5M14.5 13.5v1.5"/><circle cx="12" cy="3.6" r=".9"/></symbol><symbol id="bolt" viewBox="0 0 24 24"><path d="M13.5 3 5.5 13.5H12L10.5 21l8-10.5H12z"/></symbol><symbol id="flow" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/><path d="M10.5 7H15a2 2 0 0 1 2 2v4.5"/></symbol><symbol id="book" viewBox="0 0 24 24"><path d="M5 18.5V6a2.5 2.5 0 0 1 2.5-2.5H19v13H7.5A2.5 2.5 0 0 0 5 19a2.5 2.5 0 0 0 2.5 2.5H19"/><path d="M9 8h6"/></symbol><symbol id="refresh" viewBox="0 0 24 24"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3L19.5 9M19.5 4v5h-5"/></symbol><symbol id="search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></symbol><symbol id="plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol><symbol id="minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+<symbol id="lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></symbol><symbol id="globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.3 2.4 3.4 5.2 3.4 8.5s-1.1 6.1-3.4 8.5c-2.3-2.4-3.4-5.2-3.4-8.5s1.1-6.1 3.4-8.5z"/></symbol><symbol id="plug" viewBox="0 0 24 24"><path d="M9 3v4.5M15 3v4.5M6.5 7.5h11V11a5.5 5.5 0 0 1-11 0zM12 16.5V21"/></symbol><symbol id="code" viewBox="0 0 24 24"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></symbol><symbol id="cursor" viewBox="0 0 24 24"><path d="M5 4.5 11 20l2.2-6.8L20 11z"/></symbol><symbol id="link" viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="12" r="2.5"/><path d="M8.5 12h7"/></symbol><symbol id="grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></symbol><symbol id="fit" viewBox="0 0 24 24"><path d="M4 9V5.5A1.5 1.5 0 0 1 5.5 4H9M15 4h3.5A1.5 1.5 0 0 1 20 5.5V9M20 15v3.5a1.5 1.5 0 0 1-1.5 1.5H15M9 20H5.5A1.5 1.5 0 0 1 4 18.5V15"/></symbol>
+<symbol id="check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="m8.5 12.2 2.4 2.4 4.6-4.8"/></symbol><symbol id="alert" viewBox="0 0 24 24"><path d="M10.3 4.6 3.2 17a2 2 0 0 0 1.7 3h14.2a2 2 0 0 0 1.7-3L13.7 4.6a2 2 0 0 0-3.4 0zM12 9.5v4M12 16.8v.1"/></symbol><symbol id="more" viewBox="0 0 24 24"><path d="M5.5 12h.01M12 12h.01M18.5 12h.01" stroke-width="2.6"/></symbol><symbol id="chev" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></symbol><symbol id="file" viewBox="0 0 24 24"><path d="M13.5 3.5H7.5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V8.5z"/><path d="M13.5 3.5v5h5"/></symbol>
+</defs></svg>
+
+<header class="top">
+  <div class="brand"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect width="26" height="26" rx="7" fill="#4F46E5"/><path d="M8 9.5h10M9 11.4l3.1 4.8M17 11.4l-3.1 4.8" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity=".55"/><circle cx="8" cy="9.5" r="2.5" fill="#fff"/><circle cx="18" cy="9.5" r="2.5" fill="#fff"/><circle cx="13" cy="17.8" r="2.5" fill="#fff"/></svg>Workflow Studio</div>
+  <div class="ctx"><b>多 Agent Workflow</b><span>编辑与同步本地编排</span></div>
+  <div class="sp"></div>
+  <button class="btn ghost del"><svg class="i"><use href="#trash"/></svg>删除</button>
+  <button class="btn"><svg class="i"><use href="#copy"/></svg>复制调用方式</button>
+  <button class="btn"><svg class="i"><use href="#play"/></svg>测试 Workflow</button>
+  <button class="btn"><svg class="i"><use href="#upload"/></svg>发布到 Studio</button>
+  <button class="btn pri"><svg class="i"><use href="#sync"/></svg>同步到 Codex</button>
+  <span class="vr"></span>
+  <button class="btn ghost"><svg class="i" style="color:var(--accent)"><use href="#spark"/></svg>AI 助手</button>
+  <button class="conn"><i></i>未连接<small>点击配置</small></button>
+  <button class="avatar" aria-label="个人菜单"><svg class="i"><use href="#user"/></svg></button>
+</header>
+
+<main class="ws">
+  <nav class="rail" aria-label="工作台">
+    <button class="ri"><svg class="i"><use href="#folder"/></svg><small>Projects</small></button><hr>
+    <button class="ri"><svg class="i"><use href="#bot"/></svg><small>Agent</small></button>
+    <button class="ri"><svg class="i"><use href="#bolt"/></svg><small>Action</small></button>
+    <button class="ri on"><svg class="i"><use href="#flow"/></svg><small>Workflow</small></button>
+    <button class="ri"><svg class="i"><use href="#book"/></svg><small>Skills</small></button>
+  </nav>
+
+  <aside class="lib">
+    <div class="ph"><h2>Agent 库</h2><button class="ib" aria-label="重新扫描"><svg class="i"><use href="#refresh"/></svg></button></div>
+    <div class="search"><svg class="i" style="width:15px;height:15px"><use href="#search"/></svg>搜索名称或路径</div>
+    <p class="hint">点击加入画布，或直接拖拽。</p>
+    <div class="grp"><div class="gl">已保存 Workflows<span>1</span></div>
+      <div class="it cur"><span class="av wf"><svg class="i"><use href="#flow"/></svg></span><span class="tx"><b>会议纪要行动清单流</b><small>3 Nodes · 2 Connections</small></span><span class="badge">已同步</span></div>
+    </div>
+    <div class="grp"><div class="gl">Agents<span>3</span></div>
+      <div class="it hov"><span class="av">邮</span><span class="tx"><b>邮件内容归纳员</b><small class="m">agents/builder</small></span><span class="add"><svg class="i"><use href="#plus"/></svg></span></div>
+      <div class="it"><span class="av">纪</span><span class="tx"><b>纪要提炼员</b><small class="m">agents/researcher</small></span></div>
+      <div class="it"><span class="av">R</span><span class="tx"><b>Reviewer</b><small class="m">agents/reviewer</small></span></div>
+    </div>
+    <div class="grp"><div class="gl">Agent 可调用的 Actions<span>4</span></div>
+      <div class="it"><span class="av"><svg class="i"><use href="#globe"/></svg></span><span class="tx"><b>API Request</b><small>api · 1 Agent 已授权</small></span></div>
+      <div class="it lock"><span class="av"><svg class="i"><use href="#plug"/></svg></span><span class="tx"><b>MCP Tool Call</b><small>mcp · 尚未被 Agent 授权</small></span><svg class="i"><use href="#lock"/></svg></div>
+      <div class="it"><span class="av"><svg class="i"><use href="#code"/></svg></span><span class="tx"><b>Normalize Meeting Actions</b><small>script · 1 Agent 已授权</small></span></div>
+      <div class="it lock"><span class="av"><svg class="i"><use href="#globe"/></svg></span><span class="tx"><b>读取 Outlook 新邮件</b><small>api · 尚未被 Agent 授权</small></span><svg class="i"><use href="#lock"/></svg></div>
+    </div>
+    <div class="lf"><i></i>项目内 3 Agents</div>
+  </aside>
+
+  <section class="stage">
+    <div class="tb">
+      <h1>会议纪要行动清单流</h1>
+      <span class="saved"><svg class="i"><use href="#check"/></svg>已保存到 Studio</span>
+      <div class="sp"></div>
+      <div class="seg"><button class="on"><svg class="i"><use href="#cursor"/></svg>选择</button><button><svg class="i"><use href="#link"/></svg>连接</button></div>
+      <button class="btn ghost"><svg class="i"><use href="#grid"/></svg>排列</button>
+      <button class="btn ghost"><svg class="i"><use href="#fit"/></svg>适应</button>
+      <span class="warnp"><svg class="i"><use href="#alert"/></svg>1 条提醒<svg class="i" style="width:13px;height:13px"><use href="#chev"/></svg></span>
+    </div>
+    <div class="cv" aria-label="工作流画布">
+      <svg class="edges" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1.5 9 5 1 8.5z" fill="#A3A9B4"/></marker><marker id="ah-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1.5 9 5 1 8.5z" fill="#4F46E5"/></marker></defs>
+        <path d="M240 271 C 276 271, 250 439, 284 439" fill="none" stroke="#4F46E5" stroke-width="1.6" marker-end="url(#ah-a)"/>
+        <path d="M502 439 C 538 439, 512 271, 546 271" fill="none" stroke="#A3A9B4" stroke-width="1.6" marker-end="url(#ah)"/>
+      </svg>
+      <div class="node sel" style="left:28px;top:236px"><span class="port in"></span><span class="port out"></span>
+        <div class="nh"><span class="av">纪</span><span class="tx"><b>纪要提炼员</b><small>Agent</small></span><svg class="i more"><use href="#more"/></svg></div>
+        <p class="nd">使用 <code>$meeting-action-extractor</code> 提取决定、行动项与待确认问题</p>
+        <div class="nf"><span class="m">agents/researcher</span><span class="chip">可并行</span></div>
+      </div>
+      <div class="node" style="left:290px;top:404px"><span class="port in"></span><span class="port out"></span>
+        <div class="nh"><span class="av"><svg class="i"><use href="#code"/></svg></span><span class="tx"><b>本地标准化行动项</b><small>Action · script</small></span><svg class="i more"><use href="#more"/></svg></div>
+        <p class="nd">在本地校验会议行动项 JSON、生成 TASK 编号，并将待确认日期排在最后。</p>
+        <div class="nf"><span style="font-size:11.5px">由 纪要提炼员 调用</span><span class="chip">30s</span></div>
+      </div>
+      <div class="node" style="left:552px;top:236px"><span class="port in"></span><span class="port out"></span>
+        <div class="nh"><span class="av">行</span><span class="tx"><b>行动清单审校员</b><small>Agent</small></span><svg class="i more"><use href="#more"/></svg></div>
+        <p class="nd">对照原始记录审查行动项，输出最终 Markdown</p>
+        <div class="nf"><span class="m">agents/builder</span><span class="chip w"><svg class="i"><use href="#alert"/></svg>未测试</span></div>
+      </div>
+      <div class="zoom"><button aria-label="缩小"><svg class="i"><use href="#minus"/></svg></button><span>100%</span><button aria-label="放大"><svg class="i"><use href="#plus"/></svg></button><i></i><button aria-label="适应"><svg class="i"><use href="#fit"/></svg></button></div>
+    </div>
+  </section>
+
+  <aside class="insp">
+    <h2>配置</h2>
+    <div class="sum"><span class="av">纪</span><span class="tx"><b>纪要提炼员</b><small>Agent · <span class="m">agents/researcher</span></small></span></div>
+    <label class="f"><span>画布名称</span><div class="inp foc">纪要提炼员</div></label>
+    <label class="f"><span>职责</span><div class="inp ta">使用 $meeting-action-extractor 提取决定、行动项与待确认问题</div></label>
+    <label class="f"><span>执行入口</span><div class="inp ro"><span class="m">agents/researcher/AGENT.md</span><svg class="i"><use href="#lock"/></svg></div></label>
+    <label class="f"><span>模型</span><div class="inp">继承当前 Codex 模型<svg class="i chev"><use href="#chev"/></svg></div></label>
+    <div class="sw"><span><b>允许同层并行</b><small>与同一层级的节点同时执行</small></span><span class="tg"></span></div>
+    <button class="rm"><svg class="i"><use href="#trash"/></svg>从画布移除</button>
+    <div class="sync">
+      <div class="sync-h"><b>Codex 同步</b><span class="tag">仅本项目</span></div>
+      <ul><li><svg class="i"><use href="#file"/></svg><span class="m">.codex/workflows/*.json</span></li><li><svg class="i"><use href="#folder"/></svg><span class="m">.agents/skills/</span></li><li><svg class="i"><use href="#file"/></svg><span class="m">AGENTS.md</span><em>managed block</em></li></ul>
+      <p>点击“同步到 Codex”后先预览变更，确认后才写入这些文件。</p>
+    </div>
+  </aside>
+</main>
+</body>
+</html>
