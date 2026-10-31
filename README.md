@@ -1,8 +1,36 @@
-# Workflow Studio 0.6.0
+<div align="center">
 
-一个零依赖的本地 Agent 工作台。它把 Agent、Action、Skill 与 Workflow 草稿持久化在独立的 Studio 数据库中，并且只在用户明确点击“同步到 Codex”时修改所选项目。
+<img src="docs/images/promo-zh.webp" width="760" alt="Workflow Studio 宣传片片头：你的项目里有 12 个 Agent、40 多个 Skill 和配置文件，它们到底怎么协作？">
+
+# Workflow Studio
+
+**把散落的 Agent，连成看得见的工作流。**
+
+为 Codex、Claude Code、Qwen Code、OpenCode 打造的本地可视化工作台
+
+[English](README.en.md) · [3 步上手](#3-步上手) · [完整宣传片](https://github.com/wangyichuan0609-tech/workflow-studio/releases/latest) · [MIT 许可](LICENSE)
+
+</div>
 
 **一句话理解**：如果把 Codex、Claude Code 这类 AI 编码工具看成一支能干活的“AI 团队”，Workflow Studio 就是这支团队的**组织架构图和排班表编辑器**：谁负责什么、谁能用哪些工具、活儿按什么顺序交接，都画在一张图上；真正干活的仍然是你已经在用的 AI 工具。
+
+![Workflow 画布：两个 Agent 和一个本地 Action 连成的会议纪要工作流](docs/images/workflow.png)
+
+## 3 步上手
+
+只需要 Python 3.9 或更高版本（macOS 自带），不用安装任何依赖。
+
+```bash
+git clone https://github.com/wangyichuan0609-tech/workflow-studio.git
+cd workflow-studio
+python3 server.py
+```
+
+1. 浏览器打开 [http://127.0.0.1:4173](http://127.0.0.1:4173)。第一次打开会有新手教程，带你用一个练习项目把流程走一遍。
+2. 在左侧“项目库”选择你的项目（或点“+”添加任意本地文件夹），点“授权并导入项目”，项目里已有的 Agent、Skill、Action 和 Workflow 会自动出现。
+3. 在画布上把 Agent 和 Action 连起来、给 Workflow 设一个启动词（比如“开始”），点“同步到 Codex”并确认写入预览。之后在 Codex 里只说“开始”，它就会按这张图从第 1 步跑到最后。
+
+> Workflow 由你电脑上的 Codex、Claude Code 等 AI 编码工具来运行，所以需要先装好其中至少一个。
 
 ## 和同类产品有什么不同
 
@@ -30,15 +58,15 @@
 
 为了说清楚边界：Workflow Studio **不是**一个在线平台，也**不会自己运行**工作流或执行脚本。它负责“设计、检查、同步”，执行交给你电脑上的 AI 编码工具。如果你想要的是一个对外提供服务的聊天机器人，或者定时自动跑的云端流程，上面表格里的其他产品可能更合适。
 
-## 运行
+## 界面一览
 
-```bash
-git clone https://github.com/wangyichuan0609-tech/workflow-studio.git
-cd workflow-studio
-python3 server.py
-```
+| Agent：职责、可用的 Actions 和 Skills | Action：用表单定义确定性执行步骤 |
+|---|---|
+| ![Agent 编辑器](docs/images/agent.png) | ![Action 编辑器](docs/images/action.png) |
 
-打开 [http://127.0.0.1:4173](http://127.0.0.1:4173)。服务只监听 localhost。
+## 运行选项
+
+服务只监听 localhost（127.0.0.1）。
 
 也可以把编辑器放在另一个目录，指向实际项目：
 
